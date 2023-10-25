@@ -1,0 +1,8 @@
+res://GameManagerTestingFolder/SaveSlot.tscn
+res://GameManagerTestingFolder/SaveSelect.tscn
+res://GameManagerTestingFolder/DestinySelect.tscn
+res://GameManagerTestingFolder/Ingame.tscn
+res://GameManagerTestingFolder/SaveSelect.gd
+res://Scripts/GameManager.gd
+res://GameManagerTestingFolder/Ingame.gd
+res://Scripts/GameData.gd
