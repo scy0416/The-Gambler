@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1k822ddqff1m"]
+
+[ext_resource type="Script" path="res://GameManagerTestingFolder/Ingame.gd" id="1_7f6rf"]
+
+[node name="Ingame" type="Node"]
+script = ExtResource("1_7f6rf")
