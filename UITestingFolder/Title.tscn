@@ -1,0 +1,99 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgq8ay03noeqy"]
+
+[ext_resource type="Script" path="res://UITestingFolder/Title.gd" id="1_7mb76"]
+
+[node name="Title" type="Node"]
+script = ExtResource("1_7mb76")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainMenu" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1112.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MainMenu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainMenu/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/MainMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/MainMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "The Gambler"
+
+[node name="PlayButton" type="Button" parent="UI/MainMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="OptionButton" type="Button" parent="UI/MainMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="UI/MainMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/MainMenu/HBoxContainer"]
+layout_mode = 2
+
+[node name="QuitCheck" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="QuitCheck"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuitCheck/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="QuitCheck/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "정말로 종료하시겠습니까?"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="QuitCheck/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="QuitYes" type="Button" parent="QuitCheck/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Yes"
+
+[node name="QuitNo" type="Button" parent="QuitCheck/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "No"
+
+[connection signal="pressed" from="UI/MainMenu/HBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="UI/MainMenu/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="UI/MainMenu/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="QuitCheck/MarginContainer/VBoxContainer/HBoxContainer/QuitYes" to="." method="_on_quit_yes_pressed"]
+[connection signal="pressed" from="QuitCheck/MarginContainer/VBoxContainer/HBoxContainer/QuitNo" to="." method="_on_quit_no_pressed"]
