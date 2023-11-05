@@ -1,0 +1,87 @@
+[gd_scene load_steps=2 format=3 uid="uid://deekbmm5pslor"]
+
+[ext_resource type="Script" path="res://Title/Title.gd" id="1_36dyn"]
+
+[node name="Title" type="Node"]
+script = ExtResource("1_36dyn")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 142.0
+offset_top = 268.0
+offset_right = -858.0
+offset_bottom = -249.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "The Gambler"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Option" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "Option"
+
+[node name="Quit" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="QuitCheck" type="Panel" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/QuitCheck"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/QuitCheck/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/QuitCheck/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "정말로 종료하시겠습니까?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/QuitCheck/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="QuitYes" type="Button" parent="UI/QuitCheck/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Yes"
+
+[node name="QuitNo" type="Button" parent="UI/QuitCheck/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No"
+
+[connection signal="pressed" from="UI/VBoxContainer/Start" to="." method="StartGame"]
+[connection signal="pressed" from="UI/VBoxContainer/Option" to="." method="ToOption"]
+[connection signal="pressed" from="UI/VBoxContainer/Quit" to="." method="QuitButton"]
+[connection signal="pressed" from="UI/QuitCheck/CenterContainer/VBoxContainer/HBoxContainer/QuitYes" to="." method="QuitGame"]
+[connection signal="pressed" from="UI/QuitCheck/CenterContainer/VBoxContainer/HBoxContainer/QuitNo" to="." method="QuitCancel"]

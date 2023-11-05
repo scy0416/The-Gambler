@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://07s5r8vmwi6x"]
+[gd_scene load_steps=2 format=3 uid="uid://vscxwwb0ewfm"]
 
-[ext_resource type="Script" path="res://GameManagerTestingFolder/SaveSlot.gd" id="1_k1dbt"]
+[ext_resource type="Script" path="res://SaveSlot/SaveSlot.gd" id="1_pbjgf"]
 
 [node name="SaveSlot" type="Panel"]
 anchors_preset = 15
@@ -8,9 +8,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_k1dbt")
+script = ExtResource("1_pbjgf")
 
 [node name="SaveDataExist" type="HBoxContainer" parent="."]
 visible = false

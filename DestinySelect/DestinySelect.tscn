@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhr0d2o0bobp8"]
+[gd_scene load_steps=2 format=3 uid="uid://rp4xkflxsbx8"]
 
-[ext_resource type="Script" path="res://GameManagerTestingFolder/DestinySelect.gd" id="1_6ftnr"]
+[ext_resource type="Script" path="res://DestinySelect/DestinySelect.gd" id="1_pu7xp"]
 
 [node name="DestinySelect" type="Panel"]
 anchors_preset = 15
@@ -8,12 +8,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("1_6ftnr")
+script = ExtResource("1_pu7xp")
 
 [node name="MC" type="MarginContainer" parent="."]
-layout_mode = 2
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 theme_override_constants/margin_left = 80

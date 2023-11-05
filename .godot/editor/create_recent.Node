@@ -1,10 +1,10 @@
-Node
-PanelContainer
-Panel
-MarginContainer
 Button
 VBoxContainer
-HBoxContainer
+MarginContainer
 Control
-CenterContainer
+HBoxContainer
+Panel
 Label
+CenterContainer
+Node
+PanelContainer

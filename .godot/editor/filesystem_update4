@@ -1,6 +1,10 @@
-res://GameManagerTestingFolder/SaveSlot.tscn
+res://SaveSlot/SaveSlot.tscn
 res://GameManagerTestingFolder/SaveSelect.tscn
-res://UITestingFolder/Title.tscn
-res://GameManagerTestingFolder/DestinySelect.tscn
-res://UITestingFolder/Option.tscn
-res://GameManagerTestingFolder/SaveSelect.gd
+res://SaveSelect/SaveSelect.gd
+res://SaveSelect/SaveSelect.tscn
+res://DestinySelect/DestinySelect.tscn
+res://DestinySelect/DestinySelect.gd
+res://Title/Title.tscn
+res://Title/Title.gd
+res://Scripts/GameManager.gd
+res://SaveSlot/SaveSlot.gd
