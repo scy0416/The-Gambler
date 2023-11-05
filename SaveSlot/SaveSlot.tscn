@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3 uid="uid://vscxwwb0ewfm"]
+
+[ext_resource type="Script" path="res://SaveSlot/SaveSlot.gd" id="1_pbjgf"]
+
+[node name="SaveSlot" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_pbjgf")
+
+[node name="SaveDataExist" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SaveNum" type="Label" parent="SaveDataExist"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "데이터"
+horizontal_alignment = 1
+
+[node name="Destiny" type="Label" parent="SaveDataExist"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "운명: "
+horizontal_alignment = 1
+
+[node name="ButtonContainer" type="HBoxContainer" parent="SaveDataExist"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Continue" type="CenterContainer" parent="SaveDataExist/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ContinueButton" type="Button" parent="SaveDataExist/ButtonContainer/Continue"]
+layout_mode = 2
+text = "계속하기"
+
+[node name="Delete" type="CenterContainer" parent="SaveDataExist/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteButton" type="Button" parent="SaveDataExist/ButtonContainer/Delete"]
+layout_mode = 2
+text = "삭제하기"
+
+[node name="SaveDataNonexist" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EmptyLabel" type="Label" parent="SaveDataNonexist"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "비어있는 슬롯"
+horizontal_alignment = 1
+
+[node name="NewGameContainer" type="CenterContainer" parent="SaveDataNonexist"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NewGameButton" type="Button" parent="SaveDataNonexist/NewGameContainer"]
+layout_mode = 2
+text = "새로시작"
+
+[connection signal="pressed" from="SaveDataExist/ButtonContainer/Continue/ContinueButton" to="." method="continueGame"]
+[connection signal="pressed" from="SaveDataExist/ButtonContainer/Delete/DeleteButton" to="." method="deleteGame"]
+[connection signal="pressed" from="SaveDataNonexist/NewGameContainer/NewGameButton" to="." method="newGame"]
