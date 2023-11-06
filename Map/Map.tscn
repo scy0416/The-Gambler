@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2ovnuxk0q4j3"]
+[gd_scene load_steps=3 format=3 uid="uid://d2ovnuxk0q4j3"]
 
-[ext_resource type="PackedScene" uid="uid://m4ddqskyou0k" path="res://MapLevel/MapLevel.tscn" id="1_i2b12"]
+[ext_resource type="PackedScene" uid="uid://c1qluswy2ugkn" path="res://MapLevel/MapLevel.tscn" id="1_i2b12"]
+[ext_resource type="Script" path="res://Map/Map.gd" id="1_pvoih"]
 
 [node name="Map" type="Node"]
+script = ExtResource("1_pvoih")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -11,6 +13,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Lines" type="Control" parent="UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI"]
 layout_mode = 1

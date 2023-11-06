@@ -3,19 +3,21 @@
 # 최초 작성일: 2023.11.05
 # 목적: 맵의 각 레벨을 처리하는 스크립트
 #========================================
-extends Panel
+extends Control
 class_name MapLevel
 
 @export var level:int
 @export var nextLevel:MapLevel
 
-@onready var map1 = $MapNode/Map1
-@onready var map2 = $MapNode/Map2
-@onready var map3 = $MapNode/Map3
-@onready var map4 = $MapNode/Map4
-@onready var map5 = $MapNode/Map5
-@onready var map6 = $MapNode/Map6
-@onready var map7 = $MapNode/Map7
+@onready var map1 = $MapNodeContainer/MapNode
+@onready var map2 = $MapNodeContainer/MapNode2
+@onready var map3 = $MapNodeContainer/MapNode3
+@onready var map4 = $MapNodeContainer/MapNode4
+@onready var map5 = $MapNodeContainer/MapNode5
+@onready var map6 = $MapNodeContainer/MapNode6
+@onready var map7 = $MapNodeContainer/MapNode7
+
+@onready var mapNodeList = [map1, map2, map3, map4, map5, map6, map7]
 
 
 func _ready():
@@ -32,25 +34,31 @@ func MakeMapNode():
 	# 1은 일반적 4개, 14는 휴식방, 15는 보스방 하나
 	match level:
 		1:
-			map1.get_child(0).text = "일반 적"
-			map3.get_child(0).text = "일반 적"
-			map5.get_child(0).text = "일반 적"
-			map7.get_child(0).text = "일반 적"
+			map1.get_child(0).get_child(0).text = "일반 적"
+			map3.get_child(0).get_child(0).text = "일반 적"
+			map5.get_child(0).get_child(0).text = "일반 적"
+			map7.get_child(0).get_child(0).text = "일반 적"
 		14:
-			map1.get_child(0).text = "휴식"
-			map2.get_child(0).text = "휴식"
-			map3.get_child(0).text = "휴식"
-			map4.get_child(0).text = "휴식"
-			map5.get_child(0).text = "휴식"
-			map6.get_child(0).text = "휴식"
-			map7.get_child(0).text = "휴식"
+			map1.get_child(0).get_child(0).text = "휴식"
+			map2.get_child(0).get_child(0).text = "휴식"
+			map3.get_child(0).get_child(0).text = "휴식"
+			map4.get_child(0).get_child(0).text = "휴식"
+			map5.get_child(0).get_child(0).text = "휴식"
+			map6.get_child(0).get_child(0).text = "휴식"
+			map7.get_child(0).get_child(0).text = "휴식"
 		15:
-			map4.get_child(0).text = "보스"
+			map4.get_child(0).get_child(0).text = "보스"
 		_:
-			map1.get_child(0).text = "랜덤"
-			map2.get_child(0).text = "랜덤"
-			map3.get_child(0).text = "랜덤"
-			map4.get_child(0).text = "랜덤"
-			map5.get_child(0).text = "랜덤"
-			map6.get_child(0).text = "랜덤"
-			map7.get_child(0).text = "랜덤"
+			for node in mapNodeList:
+				var factor = randi_range(1, 100)
+				
+				if 1 <= factor and factor <= 7: # 휴식
+					node.get_child(0).get_child(0).text = "휴식"
+				elif 7 < factor and factor <= 27: # 이벤트
+					node.get_child(0).get_child(0).text = "이벤트 방"
+				elif 27 < factor and factor <= 32: # 엘리트 적
+					node.get_child(0).get_child(0).text = "엘리트 적"
+				elif 32 < factor and factor <= 35: # 상점
+					node.get_child(0).get_child(0).text = "상점"
+				elif 35 < factor and factor <= 100: # 일반 적
+					node.get_child(0).get_child(0).text = "일반 적"

@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://m4ddqskyou0k"]
+[gd_scene load_steps=3 format=3 uid="uid://c1qluswy2ugkn"]
 
 [ext_resource type="Script" path="res://MapLevel/MapLevel.gd" id="1_8uvfa"]
+[ext_resource type="PackedScene" uid="uid://cmte44d6hixpp" path="res://MapNode/MapNode.tscn" id="2_kguwr"]
 
-[node name="MapLevel" type="Panel"]
+[node name="MapLevel" type="Control"]
 custom_minimum_size = Vector2(0, 200)
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -11,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8uvfa")
 
-[node name="MapNode" type="HBoxContainer" parent="."]
+[node name="MapNodeContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,100 +21,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Map1" type="Panel" parent="MapNode"]
+[node name="MapNode" parent="MapNodeContainer" instance=ExtResource("2_kguwr")]
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="MapNode/Map1"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Map2" type="Panel" parent="MapNode"]
+[node name="MapNode2" parent="MapNodeContainer" instance=ExtResource("2_kguwr")]
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="MapNode/Map2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Map3" type="Panel" parent="MapNode"]
+[node name="MapNode3" parent="MapNodeContainer" instance=ExtResource("2_kguwr")]
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="MapNode/Map3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Map4" type="Panel" parent="MapNode"]
+[node name="MapNode4" parent="MapNodeContainer" instance=ExtResource("2_kguwr")]
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="MapNode/Map4"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Map5" type="Panel" parent="MapNode"]
+[node name="MapNode5" parent="MapNodeContainer" instance=ExtResource("2_kguwr")]
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="MapNode/Map5"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Map6" type="Panel" parent="MapNode"]
+[node name="MapNode6" parent="MapNodeContainer" instance=ExtResource("2_kguwr")]
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="MapNode/Map6"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Map7" type="Panel" parent="MapNode"]
+[node name="MapNode7" parent="MapNodeContainer" instance=ExtResource("2_kguwr")]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="MapNode/Map7"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 1
-vertical_alignment = 1
