@@ -1,10 +1,12 @@
 #========================================
 # 최초 작성자: 송찬영
 # 최초 작성일: 2023.10.10
-# 최종 변경일: 2023.10.11
+# 최종 변경일: 2023.11.08
 # 목적: 게임의 데이터를 저장, 관리하는 게임 매니저
 # 개정 이력: 송찬영, 2023.10.11, 환경 설정 데이터까지 로드할 수 있게 변경
 # 데이터 삭제 기능 추가, 데이터 생성 기능 추가
+# 송찬영, 2023.11.08, 환경 설정 리소스 생성시 값을 초기화 하는 부분을 삭제
+# 환경 설정 파일 저장하는 메소드 추가
 #========================================
 extends Node
 
@@ -91,12 +93,7 @@ func loadConfigData():
 		gameConfigData = ResourceLoader.load(SAVE_PATH + "GameConfigData.tres")
 	else:
 		gameConfigData = GameConfigData.new()
-		gameConfigData.masterVolume = 50
-		gameConfigData.backgroundVolume = 50
-		gameConfigData.animationSpeed = GameConfigData.Speed.NORMAL
-		gameConfigData.visualEffect = GameConfigData.Effect.NORMAL
-		gameConfigData.soundEffect = 50
-		ResourceSaver.save(gameConfigData, SAVE_PATH + "GameConfigData.tres")
+		saveConfigData()
 
 
 #========================================
@@ -121,3 +118,12 @@ func deleteGameData(targetSaveNum):
 	var dirCheck = DirAccess.open(SAVE_PATH)
 	if dirCheck.file_exists("save" + str(targetSaveNum) + ".tres"):
 		dirCheck.remove("save" + str(targetSaveNum) + ".tres")
+
+
+#========================================
+# 목적: 환경 설정 파일을 저장하는 메소드
+# 매개변수: 없음
+# 반환값: 없음
+#========================================
+func saveConfigData():
+	ResourceSaver.save(gameConfigData, SAVE_PATH + "GameConfigData.tres")

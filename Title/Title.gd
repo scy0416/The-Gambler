@@ -23,9 +23,8 @@ func StartGame():
 # 매개변수: 없음
 # 반환값: 없음
 #========================================
-func ToOption():
-	pass
-	#get_tree().change_scene_to_file("res://GameManagerTestingFolder/SaveSelect.tscn")
+func OpenOption():
+	$UI/Option.visible = true
 
 
 #========================================
