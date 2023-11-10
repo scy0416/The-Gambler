@@ -24,3 +24,14 @@ GameManager="*res://Scripts/GameManager.gd"
 [editor]
 
 export/convert_text_resources_to_binary=false
+
+[input]
+
+Click={
+"deadzone": 0.5,
+"events": []
+}
+
+[rendering]
+
+renderer/rendering_method="mobile"

@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://crgmeryj6bcfr"]
+
+[ext_resource type="Script" path="res://RestScene/RestScene.gd" id="1_rp16j"]
+
+[node name="RestScene" type="Node2D"]
+script = ExtResource("1_rp16j")
+
+[node name="recoverHP" type="Button" parent="."]
+offset_left = 1.0
+offset_top = 400.0
+offset_right = 132.0
+offset_bottom = 442.0
+text = "REST"
+
+[node name="HPbar" type="ProgressBar" parent="."]
+offset_right = 179.0
+offset_bottom = 27.0
+show_percentage = false
+
+[node name="HPLabel" type="Label" parent="HPbar"]
+layout_mode = 0
+offset_left = 49.0
+offset_right = 112.0
+offset_bottom = 26.0
+text = "0"
+horizontal_alignment = 1
+
+[node name="MaxHPUp" type="Button" parent="."]
+offset_left = 220.0
+offset_top = 400.0
+offset_right = 356.0
+offset_bottom = 441.0
+text = "MaxHPUp"
