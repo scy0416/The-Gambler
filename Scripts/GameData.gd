@@ -15,6 +15,8 @@ enum Destiny {DEATH, LUCK, DEVOTION, WEALTH}
 #@export var saveNum:int
 # 생명
 @export var life:int = 100
+# 최대 생명
+@export var max_life:int = 100
 # 돈
 @export var gold:int = 100
 # 운명
@@ -48,6 +50,27 @@ func setLife(value:int):
 #========================================
 func getLife()->int:
 	return life
+	
+	
+#========================================
+# 목적: max_life의 값을 초기화하는 메소드
+# 매개변수: value: max_life를 초기화 하고자 하는 값
+# 반환값: 없음
+#========================================	
+func setMaxLife(value:int):
+	max_life = value
+	emit_signal("data_changed")
+
+
+#========================================
+# 목적: max_life의 값 반환하는 메소드
+# 매개변수: 없음
+# 반환값: int
+#========================================
+func getMaxLife()->int:
+	return max_life	
+	
+	
 
 
 #========================================

@@ -27,5 +27,6 @@ func _input(event):
 		Scroll.set_v_scroll(Scroll.scroll_vertical - event.get_relative().y)
 		
 		
+#플레이어가 드래그를 시작한 위치가 스크롤 바와 겹쳤는지 체크
 func checkOverLabed(x):
 	return (x >= Scroll.get_v_scroll_bar().position.x)
