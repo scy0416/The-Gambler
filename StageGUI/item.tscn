@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://batk1542tthl1"]
+
+[ext_resource type="Texture2D" uid="uid://b1qv4g7e5mvph" path="res://SampleUI/UI1.png" id="1_tukfj"]
+[ext_resource type="Texture2D" uid="uid://rr3gxq026s08" path="res://SampleUI/Item.png" id="2_x3x6o"]
+[ext_resource type="Texture2D" uid="uid://2eenrduymcjj" path="res://SampleUI/Item2.png" id="3_roewh"]
+
+[node name="Item" type="TextureRect"]
+self_modulate = Color(0.898039, 0.933333, 0.435294, 0.768627)
+offset_right = 750.0
+offset_bottom = 279.0
+texture = ExtResource("1_tukfj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -41.5
+offset_right = 121.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_x3x6o")
+texture_pressed = ExtResource("2_x3x6o")
+texture_hover = ExtResource("3_roewh")
+stretch_mode = 0
+
+[node name="TextureButton4" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_x3x6o")
+texture_pressed = ExtResource("2_x3x6o")
+texture_hover = ExtResource("3_roewh")
+stretch_mode = 0
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_x3x6o")
+texture_pressed = ExtResource("2_x3x6o")
+texture_hover = ExtResource("3_roewh")
+stretch_mode = 0

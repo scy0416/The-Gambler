@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://deekbmm5pslor"]
+[gd_scene load_steps=5 format=3 uid="uid://deekbmm5pslor"]
 
 [ext_resource type="Script" path="res://Title/Title.gd" id="1_36dyn"]
 [ext_resource type="Texture2D" uid="uid://tr4yytwvhax" path="res://SampleUI/SampleStart.png" id="2_p2umw"]
 [ext_resource type="Texture2D" uid="uid://ck6y82jy86nuh" path="res://SampleUI/SampleOptions.png" id="3_a7mc8"]
 [ext_resource type="Texture2D" uid="uid://qjv72vs4ehk3" path="res://SampleUI/SampleQuit.png" id="4_vyvrn"]
-[ext_resource type="PackedScene" uid="uid://b1nxe0aeo6u4s" path="res://Option/Option.tscn" id="5_i0op8"]
 
 [node name="Title" type="Node"]
 script = ExtResource("1_36dyn")
@@ -84,12 +83,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "No"
 
-[node name="Option" parent="UI" instance=ExtResource("5_i0op8")]
-visible = false
-layout_mode = 1
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="pressed" from="UI/VBoxContainer/Start" to="." method="StartGame"]
-[connection signal="pressed" from="UI/VBoxContainer/Option" to="." method="OpenOption"]
+[connection signal="pressed" from="UI/VBoxContainer/Option" to="." method="ToOption"]
 [connection signal="pressed" from="UI/VBoxContainer/Quit" to="." method="QuitButton"]
 [connection signal="pressed" from="UI/QuitCheck/CenterContainer/VBoxContainer/HBoxContainer/QuitYes" to="." method="QuitGame"]
 [connection signal="pressed" from="UI/QuitCheck/CenterContainer/VBoxContainer/HBoxContainer/QuitNo" to="." method="QuitCancel"]
