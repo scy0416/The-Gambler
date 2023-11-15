@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds8tell8udvmu"]
+
+[ext_resource type="Script" path="res://ShopScene/ShopScene.gd" id="1_8wphn"]
+
+[node name="shopScene" type="Node2D"]
+script = ExtResource("1_8wphn")
+
+[node name="Gold" type="Label" parent="."]
+offset_right = 69.0
+offset_bottom = 33.0
