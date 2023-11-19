@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpulqhb1jirci"]
+
+[ext_resource type="Texture2D" uid="uid://ba8gmw33jkrl6" path="res://Sprites/yellow_panel.png" id="1_gmhyp"]
+[ext_resource type="PackedScene" uid="uid://dn8twd56kt78o" path="res://StageGUI/HPDisplay/HPDisplay.tscn" id="1_xb03s"]
+[ext_resource type="PackedScene" uid="uid://582ej14mtwsx" path="res://StageGUI/MoneyDisplay/MoneyDisplay.tscn" id="2_2l1me"]
+[ext_resource type="PackedScene" uid="uid://bpr3y8lv41jsm" path="res://StageGUI/PotionDisplay/PotionDisplay.tscn" id="3_urybk"]
+[ext_resource type="Texture2D" uid="uid://dh34blqcgfkoc" path="res://Sprites/barsHorizontal.png" id="5_6vy3k"]
+[ext_resource type="PackedScene" uid="uid://dnmrj8gnc5pks" path="res://StageGUI/RelicDisplay/RelicDisplay.tscn" id="6_8d2lb"]
+
+[node name="StageHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 155.0
+grow_horizontal = 2
+texture = ExtResource("1_gmhyp")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="HPDisplay" parent="." instance=ExtResource("1_xb03s")]
+layout_mode = 0
+
+[node name="MoneyDisplay" parent="." instance=ExtResource("2_2l1me")]
+layout_mode = 0
+offset_left = 331.0
+offset_right = 550.0
+offset_bottom = 128.0
+
+[node name="PotionDisplay" parent="." instance=ExtResource("3_urybk")]
+layout_mode = 0
+offset_left = 524.0
+offset_top = 2.0
+offset_right = 931.0
+offset_bottom = 147.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1023.0
+offset_top = 25.0
+offset_right = 1123.0
+offset_bottom = 125.0
+texture = ExtResource("5_6vy3k")
+
+[node name="RelicDisplay" parent="." instance=ExtResource("6_8d2lb")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -788.0
+offset_top = -128.0
+grow_horizontal = 0
+grow_vertical = 0
