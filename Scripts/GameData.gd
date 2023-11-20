@@ -127,7 +127,7 @@ func appendRelic(relic:Relic):
 # 반환값: 없음
 #========================================
 func deleteRelic(target:Relic):
-	if target in relics:
+	if target not in relics:
 		printerr("없는 유물을 삭제하려고 하는 중")
 		return
 	relics.erase(target)
@@ -173,3 +173,4 @@ func deleteItem(target:Item):
 #========================================
 func getItems()->Array:
 	return items
+	

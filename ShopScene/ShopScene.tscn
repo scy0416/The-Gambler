@@ -3,8 +3,61 @@
 [ext_resource type="Script" path="res://ShopScene/ShopScene.gd" id="1_8wphn"]
 
 [node name="shopScene" type="Node2D"]
+position = Vector2(6, 8)
 script = ExtResource("1_8wphn")
 
-[node name="Gold" type="Label" parent="."]
-offset_right = 69.0
-offset_bottom = 33.0
+[node name="shop" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="relicContainer" type="GridContainer" parent="shop"]
+offset_right = 405.0
+offset_bottom = 451.0
+
+[node name="shopGold" type="Label" parent="shop"]
+layout_mode = 2
+offset_left = 208.0
+offset_top = 43.0
+offset_right = 253.0
+offset_bottom = 69.0
+text = "Gold: "
+
+[node name="rerollB" type="Button" parent="shop"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "REROLL RELICS"
+
+[node name="invenB" type="Button" parent="shop"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "GO INVENTORY
+"
+
+[node name="inven" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="invenContainer" type="GridContainer" parent="inven"]
+offset_right = 73.0
+offset_bottom = 58.0
+
+[node name="invenGold" type="Label" parent="inven"]
+layout_mode = 2
+offset_left = 201.0
+offset_top = 44.0
+offset_right = 274.0
+offset_bottom = 67.0
+
+[node name="goShop" type="Button" parent="inven"]
+layout_mode = 2
+offset_top = 500.0
+offset_right = 73.0
+offset_bottom = 531.0
+text = "GO SHOP"
