@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://citc0whd3n5pl"]
+
+[ext_resource type="Texture2D" uid="uid://djo226tu13016" path="res://Shop/ShopHUD/sampleShop.png" id="1_tinig"]
+[ext_resource type="Texture2D" uid="uid://ba8gmw33jkrl6" path="res://Sprites/yellow_panel.png" id="2_xcxgg"]
+
+[node name="ShopBackGround" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+self_modulate = Color(0.298039, 0.054902, 0.329412, 1)
+layout_mode = 1
+offset_top = 320.0
+offset_right = 800.0
+offset_bottom = 350.0
+texture = ExtResource("2_xcxgg")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+self_modulate = Color(0.298039, 0.054902, 0.329412, 1)
+offset_top = 550.0
+offset_right = 800.0
+offset_bottom = 580.0
+texture = ExtResource("2_xcxgg")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 740.0
+offset_top = 130.0
+offset_right = 1140.0
+offset_bottom = 648.0
+texture = ExtResource("1_tinig")
+expand_mode = 1

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhuqmu0ivrni8"]
+
+[ext_resource type="Texture2D" uid="uid://d3i3vnv1jnlex" path="res://Sprites/tokens.png" id="1_s37eo"]
+
+[node name="TokenDisplay" type="CenterContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "100"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_s37eo")
