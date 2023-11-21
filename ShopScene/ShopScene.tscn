@@ -13,6 +13,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="relicContainer" type="GridContainer" parent="shop"]
+layout_mode = 0
 offset_right = 405.0
 offset_bottom = 451.0
 
@@ -45,6 +46,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="invenContainer" type="GridContainer" parent="inven"]
+layout_mode = 0
 offset_right = 73.0
 offset_bottom = 58.0
 

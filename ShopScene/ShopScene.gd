@@ -9,6 +9,10 @@ var normalChecked : Array
 var rareChecked : Array
 var legendaryChecked : Array
 
+var normalCount : int
+var rareCount : int
+var legendaryCount: int
+
 
 func _ready():
 	genRelics.genRelics()
@@ -66,6 +70,24 @@ func drawRelics():
 	for i in 8:
 		var rarity = rng.randf_range(0, 1)
 		rarity = weightedRarity(rarity)
+		
+		
+		if(gameData.getRelics().size()
+			>= genRelics.normalRelics.size() + genRelics.rareRelics.size() + genRelics.legendaryRelics.size()):
+				break;
+				
+		while(rarity == Relic.whatRare.NORMAL and normalCount >= genRelics.normalRelics.size()):
+			rarity = rng.randf_range(0, 1)
+			rarity = weightedRarity(rarity)
+			
+		while(rarity == Relic.whatRare.RARE and rareCount >= genRelics.rareRelics.size()):
+			rarity = rng.randf_range(0, 1)
+			rarity = weightedRarity(rarity)
+			
+		while(rarity == Relic.whatRare.LEGENDARY and legendaryCount >= genRelics.legendaryRelics.size()):
+			rarity = rng.randf_range(0, 1)
+			rarity = weightedRarity(rarity)
+			
 		var foundRelic = findRelic(rarity)
 		var button = Button.new()
 		var relicGold = foundRelic.price
@@ -117,6 +139,12 @@ func buyRelic(relic):
 		relic.button.connect("pressed", sellRelic.bind(relic))
 		$shop/relicContainer.remove_child(relic.button)
 		$inven/invenContainer.add_child(relic.button)
+		if(relic.rarity == Relic.whatRare.NORMAL):
+			normalCount += 1
+		if(relic.rarity == Relic.whatRare.RARE):
+			rareCount += 1
+		if(relic.rarity == Relic.whatRare.LEGENDARY):
+			rareCount += 1		
 		if(gameData.getGold() < 10):
 			$shop/rerollB.disabled = true
 	else:

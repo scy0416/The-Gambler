@@ -18,7 +18,7 @@ enum Destiny {DEATH, LUCK, DEVOTION, WEALTH}
 # 최대 생명
 @export var max_life:int = 100
 # 돈
-@export var gold:int = 100
+@export var gold:int = 10000
 # 운명
 @export var destiny:Destiny
 # 유물
