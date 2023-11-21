@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn8twd56kt78o"]
+
+[ext_resource type="Texture2D" uid="uid://dvbdkkq3kmgmo" path="res://Sprites/tokens_stack.png" id="1_jd4lx"]
+[ext_resource type="Script" path="res://StageGUI/HPDisplay/HPDisplay.gd" id="1_pw870"]
+
+[node name="HPDisplay" type="CenterContainer"]
+clip_contents = true
+offset_right = 326.0
+offset_bottom = 128.0
+script = ExtResource("1_pw870")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TokenAmount" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "100/100"
+horizontal_alignment = 2
+
+[node name="TokenImage" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_jd4lx")

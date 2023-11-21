@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6bsj270g770"]
+
+[ext_resource type="PackedScene" uid="uid://ou40sdoy1wlq" path="res://Shop/ShopHUD/ShopHUD.tscn" id="1_etxd6"]
+[ext_resource type="PackedScene" uid="uid://citc0whd3n5pl" path="res://Shop/shop_back_ground.tscn" id="2_oeyod"]
+[ext_resource type="PackedScene" uid="uid://ds8tell8udvmu" path="res://ShopScene/ShopScene.tscn" id="2_qtshp"]
+
+[node name="Shop" type="Node"]
+
+[node name="shopScene" parent="." instance=ExtResource("2_qtshp")]
+
+[node name="ShopBackGround" parent="." instance=ExtResource("2_oeyod")]
+
+[node name="ShopHUD" parent="." instance=ExtResource("1_etxd6")]

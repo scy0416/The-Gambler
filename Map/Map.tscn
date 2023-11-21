@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2ovnuxk0q4j3"]
 
-[ext_resource type="PackedScene" uid="uid://c1qluswy2ugkn" path="res://MapLevel/MapLevel.tscn" id="1_i2b12"]
+[ext_resource type="PackedScene" uid="uid://c1qluswy2ugkn" path="res://Map/MapLevel/MapLevel.tscn" id="1_i2b12"]
 [ext_resource type="Script" path="res://Map/Map.gd" id="1_pvoih"]
 [ext_resource type="Script" path="res://Map/UI.gd" id="2_ga1q1"]
 

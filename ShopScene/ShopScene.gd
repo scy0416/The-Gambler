@@ -17,7 +17,8 @@ var legendaryCount: int
 func _ready():
 	genRelics.genRelics()
 	initializeChecked()
-	$inven/goShop.pressed.connect(self.goShop)
+	$goShop.pressed.connect(self.goShop)
+	$shop/rerollB.pressed.connect(self.rerollRelics)
 	drawScene()
 	
 
@@ -25,18 +26,16 @@ func _ready():
 func _process(_delta):
 	$shop/shopGold.text = "GOLD: " + str(gameData.getGold())
 	$inven/invenGold.text = "GOLD: " + str(gameData.getGold())
-	
+	$invenB.pressed.connect(self.viewInven)	
 
 #목적: inventory에서 shop으로 이동한다.	
 func goShop():
 	$shop.visible = true
 	$inven.visible = false
 	
-	
 #목적: 화면을 그린다.	
+# 정승화, 2023.11.21, 인벤, goshop 버튼 draw부분 삭제, ready부분으로 이동
 func drawScene():
-	drawRerollB()
-	drawInvenB()
 	drawRelics()
 	
 	
@@ -52,20 +51,23 @@ func initializeChecked():
 	
 
 #목적: 리롤 버튼을 화면에 그린다.
-func drawRerollB():
-	$shop/rerollB.set_position(Vector2(200, 100))
-	$shop/rerollB.set_size(Vector2(50, 50))
-	$shop/rerollB.pressed.connect(self.rerollRelics)
+# 정승화, 2023.11.21, 해당 기능 이용 안 하도록 변경 
+#func drawRerollB():
+#	$shop/rerollB.set_anchor(0,130)
+#	$shop/rerollB.set_anchor(1,130)
+#	$shop/rerollB.set_size(Vector2(50, 50))
+	
 		
 		
 #목적: 인벤토리 버튼을 그린다.		
-func drawInvenB():
-	$shop/invenB.set_position(Vector2(0, 500))
-	$shop/invenB.set_size(Vector2(50, 50))
-	$shop/invenB.pressed.connect(self.viewInven)		
+# 정승화, 2023.11.21, 해당 기능 이용 안 하도록 변경
+#func drawInvenB():
+#	$invenB.set_anchor(0, 130)
+#	$invenB.set_size(Vector2(50, 50))
 		
 		
-#목적: 유물을 화면에 그린다. 		
+		
+#목적: 유물을 화면에 그린다. 	
 func drawRelics():
 	for i in 8:
 		var rarity = rng.randf_range(0, 1)
@@ -93,7 +95,8 @@ func drawRelics():
 		var relicGold = foundRelic.price
 		foundRelic.button.text = str(relicGold) + "\n" + foundRelic.description
 		foundRelic.button.connect("pressed", buyRelic.bind(foundRelic))
-		$shop/relicContainer.add_child(foundRelic.button)		
+		$shop/relicContainer.add_child(foundRelic.button)
+				
 	
 	
 #목적: 레어도에 따른 가중치 부여. 
