@@ -1,21 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://1quuwnx1475f"]
+[gd_scene load_steps=4 format=3 uid="uid://1quuwnx1475f"]
 
 [ext_resource type="Script" path="res://Stage/Stage.gd" id="1_20lc4"]
-[ext_resource type="PackedScene" uid="uid://d2ovnuxk0q4j3" path="res://Map/Map.tscn" id="2_gs732"]
 [ext_resource type="PackedScene" uid="uid://d0o7pps6vay55" path="res://StageGUI/StageGUI.tscn" id="3_nc8q6"]
 [ext_resource type="PackedScene" uid="uid://b1nxe0aeo6u4s" path="res://Option/Option.tscn" id="4_noaeg"]
 
 [node name="Stage" type="Node"]
 script = ExtResource("1_20lc4")
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Map" parent="MarginContainer" instance=ExtResource("2_gs732")]
 
 [node name="StageGUI" parent="." instance=ExtResource("3_nc8q6")]
 

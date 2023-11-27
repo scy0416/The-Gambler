@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0o7pps6vay55"]
 
-[ext_resource type="PackedScene" uid="uid://d2ovnuxk0q4j3" path="res://Map/Map.tscn" id="1_3yiyg"]
+[ext_resource type="PackedScene" uid="uid://bxmo6naqglb8q" path="res://Map/MapCard.tscn" id="1_sd1vr"]
 [ext_resource type="PackedScene" uid="uid://dpulqhb1jirci" path="res://StageGUI/StageHUD/StageHUD.tscn" id="2_qwdly"]
 
 [node name="StageGUI" type="Node"]
 
-[node name="Map" parent="." instance=ExtResource("1_3yiyg")]
+[node name="MapCard" parent="." instance=ExtResource("1_sd1vr")]
 
 [node name="StageHUD" parent="." instance=ExtResource("2_qwdly")]

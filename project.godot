@@ -23,6 +23,7 @@ GameManager="*res://Scripts/GameManager.gd"
 
 [editor]
 
+movie_writer/movie_file="C:/Users/scy0416/Documents/godot video maker/the gambler test video.avi"
 export/convert_text_resources_to_binary=false
 
 [input]
