@@ -28,7 +28,7 @@ func _ready():
 #========================================
 func continueGame():
 	GameManager.loadData(GameManager.saveNum)
-	#get_tree().change_scene_to_file("res://GameManagerTestingFolder/Ingame.tscn")
+	get_tree().change_scene_to_file("res://Stage/Stage.tscn")
 
 
 #========================================

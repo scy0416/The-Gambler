@@ -21,6 +21,10 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scripts/GameManager.gd"
 
+[display]
+
+window/size/mode=3
+
 [editor]
 
 movie_writer/movie_file="C:/Users/scy0416/Documents/godot video maker/the gambler test video.avi"

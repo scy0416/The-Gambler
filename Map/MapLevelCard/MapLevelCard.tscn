@@ -41,3 +41,11 @@ layout_mode = 2
 
 [node name="FlippableCard7" parent="NodeContainer" instance=ExtResource("2_7de7e")]
 layout_mode = 2
+
+[connection signal="card_button_clicked" from="NodeContainer/FlippableCard" to="." method="card_select1"]
+[connection signal="card_button_clicked" from="NodeContainer/FlippableCard2" to="." method="card_select2"]
+[connection signal="card_button_clicked" from="NodeContainer/FlippableCard3" to="." method="card_select3"]
+[connection signal="card_button_clicked" from="NodeContainer/FlippableCard4" to="." method="card_select4"]
+[connection signal="card_button_clicked" from="NodeContainer/FlippableCard5" to="." method="card_select5"]
+[connection signal="card_button_clicked" from="NodeContainer/FlippableCard6" to="." method="card_select6"]
+[connection signal="card_button_clicked" from="NodeContainer/FlippableCard7" to="." method="card_select7"]

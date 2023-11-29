@@ -1,5 +1,7 @@
 extends Node
 
+signal start_stage(type)
+
 @onready var level1 = $UI/ScrollContainer/VBoxContainer/MapLevelCard1
 @onready var level2 = $UI/ScrollContainer/VBoxContainer/MapLevelCard2
 @onready var level3 = $UI/ScrollContainer/VBoxContainer/MapLevelCard3
@@ -35,6 +37,7 @@ func _ready():
 	level1.map3.flip()
 	level1.map5.flip()
 	level1.map7.flip()
+	level1.activate_level()
 
 #기능: 마우스 드래그를 통해 화면을 움직이게 한다.
 func _input(event):
@@ -51,3 +54,7 @@ func _input(event):
 #플레이어가 드래그를 시작한 위치가 스크롤 바와 겹쳤는지 체크
 func checkOverLabed(x):
 	return x >= Scroll.get_v_scroll_bar().position.x
+
+
+func card_selected(type, num):
+	emit_signal("start_stage", type)
