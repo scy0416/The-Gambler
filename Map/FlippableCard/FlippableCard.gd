@@ -39,3 +39,11 @@ func activate_node():
 
 func deactivate_node():
 	$ContentLabel.disabled = true
+
+
+func deactivate_interact():
+	$ContentLabel.mouse_filter = MOUSE_FILTER_IGNORE
+
+
+func activate_interact():
+	$ContentLabel.mouse_filter = MOUSE_FILTER_STOP

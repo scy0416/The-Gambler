@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="The Gambler"
-run/main_scene="res://Title/Title.tscn"
+run/main_scene="res://tmp/Title.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="The Gambler"
 config/features=PackedStringArray("4.1", "Forward Plus")
@@ -24,6 +24,7 @@ GameManager="*res://Scripts/GameManager.gd"
 [display]
 
 window/size/mode=3
+window/stretch/mode="canvas_items"
 
 [editor]
 

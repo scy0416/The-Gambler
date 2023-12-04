@@ -74,5 +74,6 @@ func deleteGame():
 # 반환값: 없음
 #========================================
 func newGame():
+	print("실행")
 	GameManager.saveNum = saveNum
 	emit_signal("newGameClicked")

@@ -156,3 +156,13 @@ func activate_level():
 func deactivate_level():
 	for map in mapNodeList:
 		map.deactivate_node()
+
+
+func deactivate_interact():
+	for map in mapNodeList:
+		map.deactivate_interact()
+
+
+func activate_interact():
+	for map in mapNodeList:
+		map.activate_interact()

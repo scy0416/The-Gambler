@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://deekbmm5pslor"]
+[gd_scene load_steps=3 format=3 uid="uid://db8h40ulthyyf"]
 
-[ext_resource type="Script" path="res://Title/Title.gd" id="1_36dyn"]
-[ext_resource type="PackedScene" uid="uid://b1nxe0aeo6u4s" path="res://Option/Option.tscn" id="2_scr2v"]
+[ext_resource type="Script" path="res://tmp/Title.gd" id="1_a4y6o"]
+[ext_resource type="PackedScene" uid="uid://b1nxe0aeo6u4s" path="res://Option/Option.tscn" id="2_ych47"]
 
 [node name="Title" type="Node"]
-script = ExtResource("1_36dyn")
+script = ExtResource("1_a4y6o")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -17,12 +17,14 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.115
-anchor_top = 0.338
-anchor_right = 0.396
-anchor_bottom = 0.338
+anchor_left = 0.158
+anchor_top = 0.218
+anchor_right = 0.395
+anchor_bottom = 0.699
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label" type="Label" parent="UI/VBoxContainer"]
+[node name="GameTitle" type="Label" parent="UI/VBoxContainer"]
 layout_mode = 2
 text = "The Gambler"
 horizontal_alignment = 1
@@ -43,6 +45,7 @@ size_flags_vertical = 3
 text = "나가기"
 
 [node name="QuitCheck" type="Panel" parent="UI"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,14 +74,14 @@ layout_mode = 2
 [node name="QuitYes" type="Button" parent="UI/QuitCheck/CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Yes"
+text = "예"
 
 [node name="QuitNo" type="Button" parent="UI/QuitCheck/CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "No"
+text = "아니요"
 
-[node name="Option" parent="UI" instance=ExtResource("2_scr2v")]
+[node name="Option" parent="UI" instance=ExtResource("2_ych47")]
 visible = false
 layout_mode = 1
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://SaveSelect/SaveSelect.gd" id="1_sdoub"]
 [ext_resource type="PackedScene" uid="uid://vscxwwb0ewfm" path="res://SaveSlot/SaveSlot.tscn" id="2_hy05h"]
-[ext_resource type="PackedScene" uid="uid://rp4xkflxsbx8" path="res://DestinySelect/DestinySelect.tscn" id="3_3xsho"]
+[ext_resource type="PackedScene" uid="uid://rp4xkflxsbx8" path="res://CharacterSelect/CharacterSelect.tscn" id="3_3xsho"]
 
 [node name="SaveSelect" type="Node"]
 script = ExtResource("1_sdoub")
@@ -50,7 +50,7 @@ saveNum = 2
 layout_mode = 2
 saveNum = 3
 
-[node name="DestinySelect" parent="UI" instance=ExtResource("3_3xsho")]
+[node name="CharacterSelect" parent="UI" instance=ExtResource("3_3xsho")]
 visible = false
 layout_mode = 0
 anchors_preset = 0
@@ -69,5 +69,5 @@ grow_vertical = 1
 [connection signal="continueClicked" from="UI/MC/ContentContainer/SaveSlotContainer/SaveSlot3" to="." method="continueGame"]
 [connection signal="deleteClicked" from="UI/MC/ContentContainer/SaveSlotContainer/SaveSlot3" to="." method="deleteData"]
 [connection signal="newGameClicked" from="UI/MC/ContentContainer/SaveSlotContainer/SaveSlot3" to="." method="newGame"]
-[connection signal="destiny_select_cancel" from="UI/DestinySelect" to="." method="newGameCancel"]
-[connection signal="destiny_selected" from="UI/DestinySelect" to="." method="newGameStart"]
+[connection signal="character_select_cancel" from="UI/CharacterSelect" to="." method="newGameCancel"]
+[connection signal="character_selected" from="UI/CharacterSelect" to="." method="newGameStart"]

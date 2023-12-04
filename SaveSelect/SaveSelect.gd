@@ -9,7 +9,7 @@ extends Node
 @onready var slot2 = $UI/MC/ContentContainer/SaveSlotContainer/SaveSlot2
 @onready var slot3 = $UI/MC/ContentContainer/SaveSlotContainer/SaveSlot3
 @onready var saveSelectContainer = $UI/MC
-@onready var destinySelectContainer = $UI/DestinySelect
+@onready var characterSelectContainer = $UI/CharacterSelect
 
 
 #========================================
@@ -28,7 +28,8 @@ func _ready():
 #========================================
 func continueGame():
 	GameManager.loadData(GameManager.saveNum)
-	get_tree().change_scene_to_file("res://Stage/Stage.tscn")
+	get_tree().change_scene_to_packed(GameManager.gameData.savedScene)
+	#get_tree().change_scene_to_file("res://Stage/Stage.tscn")
 
 
 #========================================
@@ -48,7 +49,7 @@ func deleteData():
 #========================================
 func newGame():
 	saveSelectContainer.visible = false
-	destinySelectContainer.visible = true
+	characterSelectContainer.visible = true
 
 
 #========================================
@@ -56,17 +57,18 @@ func newGame():
 # 매개변수: dest:GameData.Destiny
 # 반환값: 없음
 #========================================
-func newGameStart(dest:GameData.Destiny):
-	GameManager.makeNewGameData(GameManager.saveNum, dest)
-	checkSlots()
+func newGameStart(character:GameData.Character):
+	GameManager.makeNewGameData(GameManager.saveNum, character)
+	#checkSlots()
 	
 	GameManager.loadData(GameManager.saveNum)
 	#get_tree().change_scene_to_file("res://GameManagerTestingFolder/Ingame.tscn")
+	get_tree().change_scene_to_file("res://Stage/Stage.tscn")
 	
-	saveSelectContainer.visible = true
-	destinySelectContainer.visible = false
+	#saveSelectContainer.visible = true
+	#destinySelectContainer.visible = false
 	
-	checkSlots()
+	#checkSlots()
 
 
 #========================================
@@ -76,7 +78,7 @@ func newGameStart(dest:GameData.Destiny):
 #========================================
 func newGameCancel():
 	saveSelectContainer.visible = true
-	destinySelectContainer.visible = false
+	characterSelectContainer.visible = false
 
 
 #========================================

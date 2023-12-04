@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://8adjm7mxrgtd"]
+
+[ext_resource type="Script" path="res://tmp/SaveSelect/SaveSlot/SaveSlot.gd" id="1_v42vx"]
+
+[node name="SaveSlot" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_v42vx")
+
+[node name="SaveDataExist" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SaveNum" type="Label" parent="SaveDataExist"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="Character" type="Label" parent="SaveDataExist"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="BtnContainer" type="HBoxContainer" parent="SaveDataExist"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="SaveDataExist/BtnContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ContinueBtn" type="Button" parent="SaveDataExist/BtnContainer/CenterContainer"]
+layout_mode = 2
+text = "계속하기"
+
+[node name="CenterContainer2" type="CenterContainer" parent="SaveDataExist/BtnContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteBtn" type="Button" parent="SaveDataExist/BtnContainer/CenterContainer2"]
+layout_mode = 2
+text = "삭제하기"
+
+[node name="SaveDataNonexist" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EmptyLabel" type="Label" parent="SaveDataNonexist"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "비어있는 슬롯"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="SaveDataNonexist"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NewGameBtn" type="Button" parent="SaveDataNonexist/CenterContainer"]
+layout_mode = 2
+text = "새로시작"

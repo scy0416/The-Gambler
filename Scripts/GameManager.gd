@@ -101,11 +101,11 @@ func loadConfigData():
 # 매개변수: targetSaveNum: 목표 데이터 숫자, dest: 설정할 운명
 # 반환값: GameData
 #========================================
-func makeNewGameData(targetSaveNum:int, dest:GameData.Destiny):
+func makeNewGameData(targetSaveNum:int, character:GameData.Character):
 	saveNum = targetSaveNum
 	#gameData = GameData.new(dest)
 	gameData = GameData.new()
-	gameData.setDestiny(dest)
+	gameData.setCharacter(character)
 	saveData()
 
 
