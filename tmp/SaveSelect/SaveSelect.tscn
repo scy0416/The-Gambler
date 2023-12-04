@@ -40,12 +40,15 @@ size_flags_vertical = 3
 
 [node name="SaveSlot1" parent="UI/MarginContainer/ContentContainer/SaveSlotContainer" instance=ExtResource("1_eaiuy")]
 layout_mode = 2
+saveNum = 1
 
 [node name="SaveSlot2" parent="UI/MarginContainer/ContentContainer/SaveSlotContainer" instance=ExtResource("1_eaiuy")]
 layout_mode = 2
+saveNum = 2
 
 [node name="SaveSlot3" parent="UI/MarginContainer/ContentContainer/SaveSlotContainer" instance=ExtResource("1_eaiuy")]
 layout_mode = 2
+saveNum = 3
 
 [node name="CharacterSelect" parent="UI/MarginContainer" instance=ExtResource("3_mbyhi")]
 visible = false

@@ -74,3 +74,7 @@ size_flags_horizontal = 3
 [node name="NewGameBtn" type="Button" parent="SaveDataNonexist/CenterContainer"]
 layout_mode = 2
 text = "새로시작"
+
+[connection signal="pressed" from="SaveDataExist/BtnContainer/CenterContainer/ContinueBtn" to="." method="continueGame"]
+[connection signal="pressed" from="SaveDataExist/BtnContainer/CenterContainer2/DeleteBtn" to="." method="deleteGame"]
+[connection signal="pressed" from="SaveDataNonexist/CenterContainer/NewGameBtn" to="." method="newGame"]

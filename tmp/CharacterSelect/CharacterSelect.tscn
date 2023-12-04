@@ -41,3 +41,8 @@ text = "캐릭터2"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "캐릭터3"
+
+[connection signal="pressed" from="VBoxContainer/CancelBtn" to="." method="cancel"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Character1" to="." method="characterSelect" binds= [1]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Character2" to="." method="characterSelect" binds= [2]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Character3" to="." method="characterSelect" binds= [3]]

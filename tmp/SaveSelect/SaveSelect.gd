@@ -23,6 +23,7 @@ func deleteApply():
 	GameManager.deleteGameData(GameManager.saveNum)
 	saveContainer.visible = true
 	deleteCheckContainer.visible = false
+	checkSlots()
 
 func deleteDeny():
 	saveContainer.visible = true
@@ -39,6 +40,7 @@ func newGameStart(character):
 	get_tree().change_scene_to_file("res://Stage/Stage.tscn")
 
 func newGameCancel():
+	print('실행')
 	saveSlotcontainer.visible = true
 	characterSelect.visible = false
 
