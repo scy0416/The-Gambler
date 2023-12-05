@@ -13,31 +13,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_ct0lr")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="OptionContainer" type="TabContainer" parent="MarginContainer/VBoxContainer"]
+[node name="OptionContainer" type="TabContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="비디오" type="Control" parent="MarginContainer/VBoxContainer/OptionContainer"]
+[node name="비디오" type="Control" parent="VBoxContainer/OptionContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/OptionContainer/비디오"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/OptionContainer/비디오"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,12 +40,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Video" type="Panel" parent="MarginContainer/VBoxContainer/OptionContainer/비디오/VBoxContainer"]
+[node name="Video" type="Panel" parent="VBoxContainer/OptionContainer/비디오/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_duwfg")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/OptionContainer/비디오/VBoxContainer/Video"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/OptionContainer/비디오/VBoxContainer/Video"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,15 +53,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VideoEffect" type="HFlowContainer" parent="MarginContainer/VBoxContainer/OptionContainer/비디오/VBoxContainer/Video/VBoxContainer"]
+[node name="VideoEffect" type="HFlowContainer" parent="VBoxContainer/OptionContainer/비디오/VBoxContainer/Video/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/OptionContainer/비디오/VBoxContainer/Video/VBoxContainer/VideoEffect"]
+[node name="Label" type="Label" parent="VBoxContainer/OptionContainer/비디오/VBoxContainer/Video/VBoxContainer/VideoEffect"]
 layout_mode = 2
 text = "화면 효과"
 
-[node name="VideoEffectOption" type="OptionButton" parent="MarginContainer/VBoxContainer/OptionContainer/비디오/VBoxContainer/Video/VBoxContainer/VideoEffect"]
+[node name="VideoEffectOption" type="OptionButton" parent="VBoxContainer/OptionContainer/비디오/VBoxContainer/Video/VBoxContainer/VideoEffect"]
 layout_mode = 2
 item_count = 3
 selected = 1
@@ -77,15 +72,15 @@ popup/item_1/id = 1
 popup/item_2/text = "많음"
 popup/item_2/id = 2
 
-[node name="AnimationSpeed" type="HFlowContainer" parent="MarginContainer/VBoxContainer/OptionContainer/비디오/VBoxContainer/Video/VBoxContainer"]
+[node name="AnimationSpeed" type="HFlowContainer" parent="VBoxContainer/OptionContainer/비디오/VBoxContainer/Video/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/OptionContainer/비디오/VBoxContainer/Video/VBoxContainer/AnimationSpeed"]
+[node name="Label" type="Label" parent="VBoxContainer/OptionContainer/비디오/VBoxContainer/Video/VBoxContainer/AnimationSpeed"]
 layout_mode = 2
 text = "애니메이션 속도"
 
-[node name="AnimationSpeedOption" type="OptionButton" parent="MarginContainer/VBoxContainer/OptionContainer/비디오/VBoxContainer/Video/VBoxContainer/AnimationSpeed"]
+[node name="AnimationSpeedOption" type="OptionButton" parent="VBoxContainer/OptionContainer/비디오/VBoxContainer/Video/VBoxContainer/AnimationSpeed"]
 layout_mode = 2
 item_count = 3
 selected = 1
@@ -96,26 +91,26 @@ popup/item_1/id = 1
 popup/item_2/text = "빠름"
 popup/item_2/id = 2
 
-[node name="ButtonContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/OptionContainer/비디오/VBoxContainer"]
+[node name="ButtonContainer" type="CenterContainer" parent="VBoxContainer/OptionContainer/비디오/VBoxContainer"]
 layout_mode = 2
 
-[node name="ButtonFlow" type="VFlowContainer" parent="MarginContainer/VBoxContainer/OptionContainer/비디오/VBoxContainer/ButtonContainer"]
+[node name="ButtonFlow" type="VFlowContainer" parent="VBoxContainer/OptionContainer/비디오/VBoxContainer/ButtonContainer"]
 layout_mode = 2
 
-[node name="SaveButton" type="Button" parent="MarginContainer/VBoxContainer/OptionContainer/비디오/VBoxContainer/ButtonContainer/ButtonFlow"]
+[node name="SaveButton" type="Button" parent="VBoxContainer/OptionContainer/비디오/VBoxContainer/ButtonContainer/ButtonFlow"]
 layout_mode = 2
 text = "저장"
 
-[node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer/OptionContainer/비디오/VBoxContainer/ButtonContainer/ButtonFlow"]
+[node name="ResetButton" type="Button" parent="VBoxContainer/OptionContainer/비디오/VBoxContainer/ButtonContainer/ButtonFlow"]
 layout_mode = 2
 text = "초기화"
 
-[node name="사운드" type="Panel" parent="MarginContainer/VBoxContainer/OptionContainer"]
+[node name="사운드" type="Panel" parent="VBoxContainer/OptionContainer"]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_581vx")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/OptionContainer/사운드"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/OptionContainer/사운드"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -123,11 +118,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sound" type="Control" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer"]
+[node name="Sound" type="Control" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -135,80 +130,80 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MasterVolume" type="HFlowContainer" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer"]
+[node name="MasterVolume" type="HFlowContainer" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/MasterVolume"]
+[node name="Label" type="Label" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/MasterVolume"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "마스터 볼륨"
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/MasterVolume"]
+[node name="HSlider" type="HSlider" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/MasterVolume"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 
-[node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/MasterVolume"]
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/MasterVolume"]
 layout_mode = 2
 
-[node name="BackgroundVolume" type="HFlowContainer" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer"]
+[node name="BackgroundVolume" type="HFlowContainer" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/BackgroundVolume"]
+[node name="Label" type="Label" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/BackgroundVolume"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "배경음"
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/BackgroundVolume"]
+[node name="HSlider" type="HSlider" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/BackgroundVolume"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 
-[node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/BackgroundVolume"]
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/BackgroundVolume"]
 layout_mode = 2
 
-[node name="SoundEffect" type="HFlowContainer" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer"]
+[node name="SoundEffect" type="HFlowContainer" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/SoundEffect"]
+[node name="Label" type="Label" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/SoundEffect"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "효과음"
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/SoundEffect"]
+[node name="HSlider" type="HSlider" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/SoundEffect"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 
-[node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/SoundEffect"]
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/SoundEffect"]
 layout_mode = 2
 
-[node name="ButtonContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer"]
+[node name="ButtonContainer" type="CenterContainer" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer"]
 layout_mode = 2
 
-[node name="ButtonFlow" type="VFlowContainer" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/ButtonContainer"]
+[node name="ButtonFlow" type="VFlowContainer" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer/ButtonContainer"]
 layout_mode = 2
 
-[node name="SaveButton" type="Button" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/ButtonContainer/ButtonFlow"]
+[node name="SaveButton" type="Button" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer/ButtonContainer/ButtonFlow"]
 layout_mode = 2
 text = "저장"
 
-[node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/ButtonContainer/ButtonFlow"]
+[node name="ResetButton" type="Button" parent="VBoxContainer/OptionContainer/사운드/VBoxContainer/ButtonContainer/ButtonFlow"]
 layout_mode = 2
 text = "초기화"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "나가기"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionContainer/비디오/VBoxContainer/ButtonContainer/ButtonFlow/SaveButton" to="." method="SaveConfigData"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionContainer/비디오/VBoxContainer/ButtonContainer/ButtonFlow/ResetButton" to="." method="resetConfigData"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/MasterVolume/HSlider" to="." method="sliderValueChange"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/MasterVolume/SpinBox" to="." method="spinBoxValueChange"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/BackgroundVolume/HSlider" to="." method="sliderValueChange"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/BackgroundVolume/SpinBox" to="." method="spinBoxValueChange"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/SoundEffect/HSlider" to="." method="sliderValueChange"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/SoundEffect/SpinBox" to="." method="spinBoxValueChange"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/ButtonContainer/ButtonFlow/SaveButton" to="." method="SaveConfigData"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/ButtonContainer/ButtonFlow/ResetButton" to="." method="resetConfigData"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="CloseOption"]
+[connection signal="pressed" from="VBoxContainer/OptionContainer/비디오/VBoxContainer/ButtonContainer/ButtonFlow/SaveButton" to="." method="SaveConfigData"]
+[connection signal="pressed" from="VBoxContainer/OptionContainer/비디오/VBoxContainer/ButtonContainer/ButtonFlow/ResetButton" to="." method="resetConfigData"]
+[connection signal="value_changed" from="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/MasterVolume/HSlider" to="." method="sliderValueChange"]
+[connection signal="value_changed" from="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/MasterVolume/SpinBox" to="." method="spinBoxValueChange"]
+[connection signal="value_changed" from="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/BackgroundVolume/HSlider" to="." method="sliderValueChange"]
+[connection signal="value_changed" from="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/BackgroundVolume/SpinBox" to="." method="spinBoxValueChange"]
+[connection signal="value_changed" from="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/SoundEffect/HSlider" to="." method="sliderValueChange"]
+[connection signal="value_changed" from="VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/SoundEffect/SpinBox" to="." method="spinBoxValueChange"]
+[connection signal="pressed" from="VBoxContainer/OptionContainer/사운드/VBoxContainer/ButtonContainer/ButtonFlow/SaveButton" to="." method="SaveConfigData"]
+[connection signal="pressed" from="VBoxContainer/OptionContainer/사운드/VBoxContainer/ButtonContainer/ButtonFlow/ResetButton" to="." method="resetConfigData"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="CloseOption"]

@@ -9,7 +9,7 @@ func StartGame():
 
 # 옵션창 열기
 func OpenOption():
-	$UI/Option.visible = true
+	$UI/OptionContainer.visible = true
 
 # 나가기 버튼 처리
 func QuitButton():
@@ -22,3 +22,6 @@ func QuitGame():
 # 게임 나가기 취소
 func QuitCancel():
 	quitCheck.visible = false
+
+func CloseOption():
+	$UI/OptionContainer.visible = false

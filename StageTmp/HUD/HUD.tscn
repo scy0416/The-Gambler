@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=3 uid="uid://5vsoc8cmhi3y"]
+
+[ext_resource type="Texture2D" uid="uid://d08d8g8ba0aw" path="res://Sprites/HUDSprites/yellow_panel.png" id="1_7wy8w"]
+[ext_resource type="Script" path="res://StageTmp/HUD/HUD.gd" id="1_xfwwk"]
+[ext_resource type="Texture2D" uid="uid://cvjw80tmcywls" path="res://Sprites/HUDSprites/gear.png" id="2_5pw74"]
+[ext_resource type="PackedScene" uid="uid://b8lrfrw56hf2b" path="res://StageTmp/HPDisplay/HPDisplay.tscn" id="3_t7awq"]
+[ext_resource type="PackedScene" uid="uid://b1nxe0aeo6u4s" path="res://Option/Option.tscn" id="4_bhg3r"]
+[ext_resource type="PackedScene" uid="uid://bdbb4k8mgxr41" path="res://StageTmp/MoneyDisplay/MoneyDisplay.tscn" id="4_en7w8"]
+[ext_resource type="PackedScene" uid="uid://bwky7n87slqx" path="res://StageTmp/PotionDisplay/PotionDisplay.tscn" id="5_qyf8v"]
+[ext_resource type="PackedScene" uid="uid://cfp7bvbm7yiem" path="res://StageTmp/RelicDisplay/RelicDisplay.tscn" id="6_gfpr7"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xfwwk")
+
+[node name="StatusDisplay" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.066
+offset_bottom = 0.231998
+grow_horizontal = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="StatusDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7wy8w")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatusDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HPDisplay" parent="StatusDisplay/HBoxContainer" instance=ExtResource("3_t7awq")]
+layout_mode = 2
+
+[node name="MoneyDisplay" parent="StatusDisplay/HBoxContainer" instance=ExtResource("4_en7w8")]
+layout_mode = 2
+
+[node name="PotionDisplay" parent="StatusDisplay/HBoxContainer" instance=ExtResource("5_qyf8v")]
+layout_mode = 2
+
+[node name="RelicDisplay" parent="StatusDisplay/HBoxContainer" instance=ExtResource("6_gfpr7")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="StatusDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(43, 43)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="StatusDisplay/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_5pw74")
+texture_pressed = ExtResource("2_5pw74")
+texture_hover = ExtResource("2_5pw74")
+texture_disabled = ExtResource("2_5pw74")
+texture_focused = ExtResource("2_5pw74")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="OptionContainer" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionContainer"]
+layout_mode = 2
+
+[node name="Option" parent="OptionContainer/VBoxContainer" instance=ExtResource("4_bhg3r")]
+layout_mode = 2
+
+[node name="SaveQuit" type="Button" parent="OptionContainer/VBoxContainer"]
+layout_mode = 2
+text = "저장하고 나가기"
+
+[connection signal="pressed" from="StatusDisplay/HBoxContainer/Control/TextureButton" to="." method="openOption"]
+[connection signal="optionClose" from="OptionContainer/VBoxContainer/Option" to="." method="closeOption"]
+[connection signal="pressed" from="OptionContainer/VBoxContainer/SaveQuit" to="." method="saveQuit"]

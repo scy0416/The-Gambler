@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfp7bvbm7yiem"]
+
+[ext_resource type="Texture2D" uid="uid://ybbrjdoj67pq" path="res://Sprites/HUDSprites/grey_panel.png" id="1_t7358"]
+[ext_resource type="Texture2D" uid="uid://cry8yh1s72omk" path="res://Sprites/d3_outline.png" id="2_obtb4"]
+
+[node name="RelicDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+
+[node name="RelicPanel" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_t7358")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RelicPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Relic1" type="TextureRect" parent="RelicPanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_obtb4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Relic2" type="TextureRect" parent="RelicPanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_obtb4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Relic3" type="TextureRect" parent="RelicPanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_obtb4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Relic4" type="TextureRect" parent="RelicPanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_obtb4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Relic5" type="TextureRect" parent="RelicPanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_obtb4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Relic6" type="TextureRect" parent="RelicPanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_obtb4")
+expand_mode = 2
+stretch_mode = 5

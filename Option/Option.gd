@@ -7,15 +7,17 @@
 #========================================
 extends Control
 
+signal optionClose
+
 var gameConfigData = GameManager.gameConfigData
-@onready var videoEffect = $"MarginContainer/VBoxContainer/OptionContainer/비디오/VBoxContainer/Video/VBoxContainer/VideoEffect/VideoEffectOption"
-@onready var animationSpeed = $"MarginContainer/VBoxContainer/OptionContainer/비디오/VBoxContainer/Video/VBoxContainer/AnimationSpeed/AnimationSpeedOption"
-@onready var masterVolumeSlider = $"MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/MasterVolume/HSlider"
-@onready var masterVolumeSpinBox = $"MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/MasterVolume/SpinBox"
-@onready var backgroundVolumeSlider = $"MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/BackgroundVolume/HSlider"
-@onready var backgroundVolumeSpinBox = $"MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/BackgroundVolume/SpinBox"
-@onready var soundEffectSlider = $"MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/SoundEffect/HSlider"
-@onready var soundEffectSpinBox = $"MarginContainer/VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/SoundEffect/SpinBox"
+@onready var videoEffect = $"VBoxContainer/OptionContainer/비디오/VBoxContainer/Video/VBoxContainer/VideoEffect/VideoEffectOption"
+@onready var animationSpeed = $"VBoxContainer/OptionContainer/비디오/VBoxContainer/Video/VBoxContainer/AnimationSpeed/AnimationSpeedOption"
+@onready var masterVolumeSlider = $"VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/MasterVolume/HSlider"
+@onready var masterVolumeSpinBox = $"VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/MasterVolume/SpinBox"
+@onready var backgroundVolumeSlider = $"VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/BackgroundVolume/HSlider"
+@onready var backgroundVolumeSpinBox = $"VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/BackgroundVolume/SpinBox"
+@onready var soundEffectSlider = $"VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/SoundEffect/HSlider"
+@onready var soundEffectSpinBox = $"VBoxContainer/OptionContainer/사운드/VBoxContainer/Sound/VBoxContainer/SoundEffect/SpinBox"
 
 
 #========================================
@@ -33,7 +35,8 @@ func _ready():
 # 반환값: 없음
 #========================================
 func CloseOption():
-	visible = false
+	#visible = false
+	emit_signal("optionClose")
 
 
 #========================================

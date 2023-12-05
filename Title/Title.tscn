@@ -81,12 +81,25 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "아니요"
 
-[node name="Option" parent="UI" instance=ExtResource("2_ivmjc")]
+[node name="OptionContainer" type="MarginContainer" parent="UI"]
 visible = false
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Option" parent="UI/OptionContainer" instance=ExtResource("2_ivmjc")]
+layout_mode = 2
 
 [connection signal="pressed" from="UI/VBoxContainer/Start" to="." method="StartGame"]
 [connection signal="pressed" from="UI/VBoxContainer/Option" to="." method="OpenOption"]
 [connection signal="pressed" from="UI/VBoxContainer/Quit" to="." method="QuitButton"]
 [connection signal="pressed" from="UI/QuitCheck/CenterContainer/VBoxContainer/HBoxContainer/QuitYes" to="." method="QuitGame"]
 [connection signal="pressed" from="UI/QuitCheck/CenterContainer/VBoxContainer/HBoxContainer/QuitNo" to="." method="QuitCancel"]
+[connection signal="optionClose" from="UI/OptionContainer/Option" to="." method="CloseOption"]
