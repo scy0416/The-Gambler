@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://8adjm7mxrgtd"]
 
-[ext_resource type="Script" path="res://tmp/SaveSelect/SaveSlot/SaveSlot.gd" id="1_v42vx"]
+[ext_resource type="Script" path="res://Title/SaveSelect/SaveSlot/SaveSlot.gd" id="1_v42vx"]
 
 [node name="SaveSlot" type="Panel"]
 anchors_preset = 15

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://oyeqrfugrcf"]
 
-[ext_resource type="PackedScene" uid="uid://8adjm7mxrgtd" path="res://tmp/SaveSelect/SaveSlot/SaveSlot.tscn" id="1_eaiuy"]
-[ext_resource type="Script" path="res://tmp/SaveSelect/SaveSelect.gd" id="1_hjkta"]
-[ext_resource type="PackedScene" uid="uid://buw2n1a28sode" path="res://tmp/CharacterSelect/CharacterSelect.tscn" id="3_mbyhi"]
+[ext_resource type="PackedScene" uid="uid://8adjm7mxrgtd" path="res://Title/SaveSelect/SaveSlot/SaveSlot.tscn" id="1_eaiuy"]
+[ext_resource type="Script" path="res://Title/SaveSelect/SaveSelect.gd" id="1_hjkta"]
+[ext_resource type="PackedScene" uid="uid://buw2n1a28sode" path="res://Title/CharacterSelect/CharacterSelect.tscn" id="3_mbyhi"]
 
 [node name="SaveSelect" type="Node"]
 script = ExtResource("1_hjkta")

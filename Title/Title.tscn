@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://db8h40ulthyyf"]
 
-[ext_resource type="Script" path="res://tmp/Title.gd" id="1_a4y6o"]
-[ext_resource type="PackedScene" uid="uid://b1nxe0aeo6u4s" path="res://Option/Option.tscn" id="2_ych47"]
+[ext_resource type="Script" path="res://Title/Title.gd" id="1_vekon"]
+[ext_resource type="PackedScene" uid="uid://b1nxe0aeo6u4s" path="res://Option/Option.tscn" id="2_ivmjc"]
 
 [node name="Title" type="Node"]
-script = ExtResource("1_a4y6o")
+script = ExtResource("1_vekon")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -81,7 +81,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "아니요"
 
-[node name="Option" parent="UI" instance=ExtResource("2_ych47")]
+[node name="Option" parent="UI" instance=ExtResource("2_ivmjc")]
 visible = false
 layout_mode = 1
 
