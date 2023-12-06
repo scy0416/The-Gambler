@@ -17,5 +17,3 @@ script = ExtResource("1_20lc4")
 
 [node name="Option" parent="." instance=ExtResource("4_noaeg")]
 visible = false
-
-[connection signal="stage_done" from="DestinySelectStage" to="." method="stage_done"]

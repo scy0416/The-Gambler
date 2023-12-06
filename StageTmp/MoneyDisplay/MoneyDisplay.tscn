@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdbb4k8mgxr41"]
+[gd_scene load_steps=3 format=3 uid="uid://bdbb4k8mgxr41"]
 
 [ext_resource type="Texture2D" uid="uid://epr3ky7ycvls" path="res://Sprites/HUDSprites/dollar.png" id="1_0bco7"]
+[ext_resource type="Script" path="res://StageTmp/MoneyDisplay/MoneyDisplay.gd" id="1_dd2p6"]
 
 [node name="MoneyDisplay" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3
+script = ExtResource("1_dd2p6")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1

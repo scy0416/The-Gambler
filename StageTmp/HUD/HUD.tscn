@@ -102,4 +102,4 @@ text = "저장하고 나가기"
 
 [connection signal="pressed" from="StatusDisplay/HBoxContainer/Control/TextureButton" to="." method="openOption"]
 [connection signal="optionClose" from="OptionContainer/VBoxContainer/Option" to="." method="closeOption"]
-[connection signal="pressed" from="OptionContainer/VBoxContainer/SaveQuit" to="." method="saveQuit"]
+[connection signal="pressed" from="OptionContainer/VBoxContainer/SaveQuit" to="." method="saveQuitButton"]

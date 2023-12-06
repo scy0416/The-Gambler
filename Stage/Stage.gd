@@ -22,7 +22,6 @@ func start_stage(type):
 	print(type,"이 선택됨")
 	match type:
 		"일반 적":
-			
 			get_tree().change_scene_to_file("res://Battle/Battle.tscn")
 
 

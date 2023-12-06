@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dw3ebuicoj5gx"]
 
-[ext_resource type="Texture2D" uid="uid://b7ysslj2oqhnd" path="res://Sprites/cardBack_blue1.png" id="1_oxgs1"]
+[ext_resource type="Texture2D" uid="uid://b7ysslj2oqhnd" path="res://Sprites/MapSprites/cardBack_blue1.png" id="1_oxgs1"]
 [ext_resource type="Script" path="res://Map/FlippableCard/FlippableCard.gd" id="2_hs3dc"]
 
 [sub_resource type="Animation" id="Animation_i7qw2"]

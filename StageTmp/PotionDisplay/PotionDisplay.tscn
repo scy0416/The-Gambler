@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwky7n87slqx"]
+[gd_scene load_steps=4 format=3 uid="uid://bwky7n87slqx"]
 
 [ext_resource type="Texture2D" uid="uid://ybbrjdoj67pq" path="res://Sprites/HUDSprites/grey_panel.png" id="1_62qsy"]
+[ext_resource type="Script" path="res://StageTmp/PotionDisplay/PotionDisplay.gd" id="1_g64e3"]
 [ext_resource type="Texture2D" uid="uid://b0t6wnpntqvfb" path="res://Sprites/HUDSprites/flask_empty.png" id="2_440h2"]
 
 [node name="PotionDisplay" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3
+script = ExtResource("1_g64e3")
 
 [node name="PotionPanel" type="NinePatchRect" parent="."]
 layout_mode = 1

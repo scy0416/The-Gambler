@@ -37,10 +37,10 @@ func newGameStart(character):
 	GameManager.makeNewGameData(GameManager.saveNum, character)
 	
 	GameManager.loadData(GameManager.saveNum)
-	get_tree().change_scene_to_file("res://Stage/Stage.tscn")
+	#get_tree().change_scene_to_file("res://Stage/Stage.tscn")
+	get_tree().change_scene_to_file("res://StageTmp/Stage.tscn")
 
 func newGameCancel():
-	print('실행')
 	saveSlotcontainer.visible = true
 	characterSelect.visible = false
 
@@ -50,4 +50,4 @@ func checkSlots():
 	slot3.checkData()
 
 func goTitle():
-	get_tree().change_scene_to_file("res://tmp/Title.tscn")
+	get_tree().change_scene_to_file("res://Title/Title.tscn")

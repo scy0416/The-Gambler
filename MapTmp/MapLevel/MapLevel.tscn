@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcub72dpkb3na"]
+
+[ext_resource type="PackedScene" uid="uid://dxnh2kw7srvh" path="res://MapTmp/NodeCard/NodeCard.tscn" id="1_ae610"]
+[ext_resource type="Script" path="res://MapTmp/MapLevel/MapLevel.gd" id="1_r7jhb"]
+
+[node name="MapLevel" type="Control"]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r7jhb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="NodeCard1" parent="HBoxContainer" instance=ExtResource("1_ae610")]
+layout_mode = 2
+
+[node name="NodeCard2" parent="HBoxContainer" instance=ExtResource("1_ae610")]
+layout_mode = 2
+
+[node name="NodeCard3" parent="HBoxContainer" instance=ExtResource("1_ae610")]
+layout_mode = 2
+
+[node name="NodeCard4" parent="HBoxContainer" instance=ExtResource("1_ae610")]
+layout_mode = 2
+
+[node name="NodeCard5" parent="HBoxContainer" instance=ExtResource("1_ae610")]
+layout_mode = 2
+
+[node name="NodeCard6" parent="HBoxContainer" instance=ExtResource("1_ae610")]
+layout_mode = 2
+
+[node name="NodeCard7" parent="HBoxContainer" instance=ExtResource("1_ae610")]
+layout_mode = 2
+
+[connection signal="card_button_clicked" from="HBoxContainer/NodeCard1" to="." method="card_select1"]
+[connection signal="card_button_clicked" from="HBoxContainer/NodeCard2" to="." method="card_select2"]
+[connection signal="card_button_clicked" from="HBoxContainer/NodeCard3" to="." method="card_select3"]
+[connection signal="card_button_clicked" from="HBoxContainer/NodeCard4" to="." method="card_select4"]
+[connection signal="card_button_clicked" from="HBoxContainer/NodeCard5" to="." method="card_select5"]
+[connection signal="card_button_clicked" from="HBoxContainer/NodeCard6" to="." method="card_select6"]
+[connection signal="card_button_clicked" from="HBoxContainer/NodeCard7" to="." method="card_select7"]

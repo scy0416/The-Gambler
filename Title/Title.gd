@@ -5,7 +5,7 @@ extends Node
 
 # 게임을시작하는 버튼에 대한 처리
 func StartGame():
-	get_tree().change_scene_to_file("res://tmp/SaveSelect/SaveSelect.tscn")
+	get_tree().change_scene_to_file("res://Title/SaveSelect/SaveSelect.tscn")
 
 # 옵션창 열기
 func OpenOption():

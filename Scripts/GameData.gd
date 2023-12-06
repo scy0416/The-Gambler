@@ -29,6 +29,7 @@ enum Character {c1, c2, c3}
 # 캐릭터 타입
 @export var character:Character
 @export var savedScene:PackedScene
+@export var savedSceneState:Dictionary
 '''
 func _init(dest:Destiny):
 	life = 100

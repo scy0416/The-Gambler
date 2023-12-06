@@ -16,7 +16,7 @@ const SAVE_PATH = "user://"
 # 현재 세이브 데이터 번호
 var saveNum:int = -1
 # 게임 데이터
-var gameData:Resource
+var gameData:Resource = GameData.new() # 이거는 테스트 용으로 실제 게임에서는 없어야 한다.
 # 환경 설정 데이터
 var gameConfigData:Resource
 
