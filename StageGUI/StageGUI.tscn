@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0o7pps6vay55"]
-
-[ext_resource type="PackedScene" uid="uid://dpulqhb1jirci" path="res://StageGUI/StageHUD/StageHUD.tscn" id="2_qwdly"]
-
-[node name="StageGUI" type="Node"]
-
-[node name="StageHUD" parent="." instance=ExtResource("2_qwdly")]
-mouse_filter = 2
