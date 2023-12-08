@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwky7n87slqx"]
+[gd_scene load_steps=4 format=3 uid="uid://dl623a8srgtxn"]
 
-[ext_resource type="Texture2D" uid="uid://ybbrjdoj67pq" path="res://Sprites/HUDSprites/grey_panel.png" id="1_62qsy"]
-[ext_resource type="Script" path="res://StageTmp/PotionDisplay/PotionDisplay.gd" id="1_g64e3"]
-[ext_resource type="Texture2D" uid="uid://b0t6wnpntqvfb" path="res://Sprites/HUDSprites/flask_empty.png" id="2_440h2"]
+[ext_resource type="Script" path="res://Stage/PotionDisplay/PotionDisplay.gd" id="1_3aaqu"]
+[ext_resource type="Texture2D" uid="uid://ybbrjdoj67pq" path="res://Sprites/HUDSprites/grey_panel.png" id="2_y4r5u"]
+[ext_resource type="Texture2D" uid="uid://b0t6wnpntqvfb" path="res://Sprites/HUDSprites/flask_empty.png" id="3_r3vq5"]
 
 [node name="PotionDisplay" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3
-script = ExtResource("1_g64e3")
+script = ExtResource("1_3aaqu")
 
 [node name="PotionPanel" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -17,7 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_62qsy")
+texture = ExtResource("2_y4r5u")
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5
@@ -34,20 +34,20 @@ grow_vertical = 2
 [node name="Potion1" type="TextureRect" parent="PotionPanel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("2_440h2")
+texture = ExtResource("3_r3vq5")
 expand_mode = 2
 stretch_mode = 5
 
 [node name="Potion2" type="TextureRect" parent="PotionPanel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("2_440h2")
+texture = ExtResource("3_r3vq5")
 expand_mode = 2
 stretch_mode = 5
 
 [node name="Potion3" type="TextureRect" parent="PotionPanel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("2_440h2")
+texture = ExtResource("3_r3vq5")
 expand_mode = 2
 stretch_mode = 5

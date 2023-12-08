@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcub72dpkb3na"]
+[gd_scene load_steps=3 format=3 uid="uid://jgjxpamjrn8k"]
 
-[ext_resource type="PackedScene" uid="uid://dxnh2kw7srvh" path="res://MapTmp/NodeCard/NodeCard.tscn" id="1_ae610"]
-[ext_resource type="Script" path="res://MapTmp/MapLevel/MapLevel.gd" id="1_r7jhb"]
+[ext_resource type="Script" path="res://Map/MapLevel/MapLevel.gd" id="1_iq4e5"]
+[ext_resource type="PackedScene" uid="uid://h27tw3nbtflg" path="res://Map/NodeCard/NodeCard.tscn" id="2_jrpoy"]
 
 [node name="MapLevel" type="Control"]
 custom_minimum_size = Vector2(0, 190)
@@ -11,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_r7jhb")
+script = ExtResource("1_iq4e5")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -20,25 +20,25 @@ anchor_right = 1.0
 grow_horizontal = 2
 alignment = 1
 
-[node name="NodeCard1" parent="HBoxContainer" instance=ExtResource("1_ae610")]
+[node name="NodeCard1" parent="HBoxContainer" instance=ExtResource("2_jrpoy")]
 layout_mode = 2
 
-[node name="NodeCard2" parent="HBoxContainer" instance=ExtResource("1_ae610")]
+[node name="NodeCard2" parent="HBoxContainer" instance=ExtResource("2_jrpoy")]
 layout_mode = 2
 
-[node name="NodeCard3" parent="HBoxContainer" instance=ExtResource("1_ae610")]
+[node name="NodeCard3" parent="HBoxContainer" instance=ExtResource("2_jrpoy")]
 layout_mode = 2
 
-[node name="NodeCard4" parent="HBoxContainer" instance=ExtResource("1_ae610")]
+[node name="NodeCard4" parent="HBoxContainer" instance=ExtResource("2_jrpoy")]
 layout_mode = 2
 
-[node name="NodeCard5" parent="HBoxContainer" instance=ExtResource("1_ae610")]
+[node name="NodeCard5" parent="HBoxContainer" instance=ExtResource("2_jrpoy")]
 layout_mode = 2
 
-[node name="NodeCard6" parent="HBoxContainer" instance=ExtResource("1_ae610")]
+[node name="NodeCard6" parent="HBoxContainer" instance=ExtResource("2_jrpoy")]
 layout_mode = 2
 
-[node name="NodeCard7" parent="HBoxContainer" instance=ExtResource("1_ae610")]
+[node name="NodeCard7" parent="HBoxContainer" instance=ExtResource("2_jrpoy")]
 layout_mode = 2
 
 [connection signal="card_button_clicked" from="HBoxContainer/NodeCard1" to="." method="card_select1"]

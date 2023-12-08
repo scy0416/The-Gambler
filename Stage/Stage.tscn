@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://g37k5u3vhne"]
+
+[ext_resource type="Script" path="res://Stage/Stage.gd" id="1_yua61"]
+[ext_resource type="PackedScene" uid="uid://chs11gxbxlg8a" path="res://Stage/Action/DestinySelect/DestinySelect.tscn" id="2_32g7g"]
+[ext_resource type="PackedScene" uid="uid://c6vko3lb8iys4" path="res://Map/Map.tscn" id="3_8xyfv"]
+[ext_resource type="PackedScene" uid="uid://ce4qdkt72ossd" path="res://Stage/HUD/HUD.tscn" id="4_qop1g"]
+
+[node name="Stage" type="Node"]
+script = ExtResource("1_yua61")
+
+[node name="DestinySelect" parent="." instance=ExtResource("2_32g7g")]
+
+[node name="Map" parent="." instance=ExtResource("3_8xyfv")]
+visible = false
+mouse_filter = 1
+
+[node name="HUD" parent="." instance=ExtResource("4_qop1g")]
+mouse_filter = 2
+
+[connection signal="stage_done" from="DestinySelect" to="." method="action_done"]
+[connection signal="start_stage" from="Map" to="." method="action_start"]
+[connection signal="saveQuit" from="HUD" to="." method="saveAndQuit"]

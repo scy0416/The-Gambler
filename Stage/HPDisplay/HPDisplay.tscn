@@ -1,13 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8lrfrw56hf2b"]
+[gd_scene load_steps=3 format=3 uid="uid://c121tmuytqp63"]
 
-[ext_resource type="Texture2D" uid="uid://ckmdpycxcuxf5" path="res://Sprites/HUDSprites/tokens_stack.png" id="1_1yvc6"]
-[ext_resource type="Script" path="res://StageTmp/HPDisplay/HPDisplay.gd" id="1_vadix"]
+[ext_resource type="Script" path="res://Stage/HPDisplay/HPDisplay.gd" id="1_876c1"]
+[ext_resource type="Texture2D" uid="uid://ckmdpycxcuxf5" path="res://Sprites/HUDSprites/tokens_stack.png" id="2_s6ha5"]
 
 [node name="HPDisplay" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3
-script = ExtResource("1_vadix")
+script = ExtResource("1_876c1")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -29,6 +29,6 @@ vertical_alignment = 1
 [node name="HPImage" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("1_1yvc6")
+texture = ExtResource("2_s6ha5")
 expand_mode = 2
 stretch_mode = 4

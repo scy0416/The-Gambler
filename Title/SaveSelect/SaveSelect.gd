@@ -38,7 +38,7 @@ func newGameStart(character):
 	
 	GameManager.loadData(GameManager.saveNum)
 	#get_tree().change_scene_to_file("res://Stage/Stage.tscn")
-	get_tree().change_scene_to_file("res://StageTmp/Stage.tscn")
+	get_tree().change_scene_to_file("res://Stage/Stage.tscn")
 
 func newGameCancel():
 	saveSlotcontainer.visible = true

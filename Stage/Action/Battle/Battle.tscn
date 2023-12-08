@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cs7f7h5yvsnyi"]
+[gd_scene load_steps=2 format=3 uid="uid://d1f5iuiw7mljm"]
 
-[ext_resource type="Script" path="res://StageTmp/Action/Battle/Battle.gd" id="1_ml3ly"]
+[ext_resource type="Script" path="res://Stage/Action/Battle/Battle.gd" id="1_738ra"]
 
 [node name="Battle" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ml3ly")
+script = ExtResource("1_738ra")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

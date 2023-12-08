@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://maxnmrquor30"]
+[gd_scene load_steps=6 format=3 uid="uid://c6vko3lb8iys4"]
 
-[ext_resource type="Script" path="res://MapTmp/Map.gd" id="1_i8nn0"]
-[ext_resource type="PackedScene" uid="uid://dcub72dpkb3na" path="res://MapTmp/MapLevel/MapLevel.tscn" id="2_3e0ah"]
+[ext_resource type="Script" path="res://Map/Map.gd" id="1_lj43a"]
+[ext_resource type="PackedScene" uid="uid://jgjxpamjrn8k" path="res://Map/MapLevel/MapLevel.tscn" id="2_5xjxm"]
 
 [sub_resource type="Animation" id="Animation_b6ghf"]
 length = 0.001
@@ -46,7 +46,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_i8nn0")
+script = ExtResource("1_lj43a")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -65,76 +65,76 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MapLevel15" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_3e0ah")]
+[node name="MapLevel15" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 15
 
-[node name="MapLevel14" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_3e0ah")]
+[node name="MapLevel14" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 14
 nextLevel = NodePath("../MapLevel15")
 
-[node name="MapLevel13" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_3e0ah")]
+[node name="MapLevel13" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 13
 nextLevel = NodePath("../MapLevel14")
 
-[node name="MapLevel12" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_3e0ah")]
+[node name="MapLevel12" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 12
 nextLevel = NodePath("../MapLevel13")
 
-[node name="MapLevel11" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_3e0ah")]
+[node name="MapLevel11" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 11
 nextLevel = NodePath("../MapLevel12")
 
-[node name="MapLevel10" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_3e0ah")]
+[node name="MapLevel10" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 10
 nextLevel = NodePath("../MapLevel11")
 
-[node name="MapLevel9" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_3e0ah")]
+[node name="MapLevel9" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 9
 nextLevel = NodePath("../MapLevel10")
 
-[node name="MapLevel8" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_3e0ah")]
+[node name="MapLevel8" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 8
 nextLevel = NodePath("../MapLevel9")
 
-[node name="MapLevel7" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_3e0ah")]
+[node name="MapLevel7" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 7
 nextLevel = NodePath("../MapLevel8")
 
-[node name="MapLevel6" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_3e0ah")]
+[node name="MapLevel6" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 6
 nextLevel = NodePath("../MapLevel7")
 
-[node name="MapLevel5" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_3e0ah")]
+[node name="MapLevel5" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 5
 nextLevel = NodePath("../MapLevel6")
 
-[node name="MapLevel4" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_3e0ah")]
+[node name="MapLevel4" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 4
 nextLevel = NodePath("../MapLevel5")
 
-[node name="MapLevel3" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_3e0ah")]
+[node name="MapLevel3" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 3
 nextLevel = NodePath("../MapLevel4")
 
-[node name="MapLevel2" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_3e0ah")]
+[node name="MapLevel2" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 2
 nextLevel = NodePath("../MapLevel3")
 
-[node name="MapLevel1" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_3e0ah")]
+[node name="MapLevel1" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 1
 nextLevel = NodePath("../MapLevel2")

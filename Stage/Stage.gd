@@ -42,6 +42,7 @@ func saveState():
 	GameManager.saveData()
 
 func action_done():
+	print("맵 활성화")
 	get_child(0).deactivate()
 	
 	map.interactable = true
@@ -61,7 +62,7 @@ func action_start(type):
 		"일반 적":
 			get_child(0).set_owner(null)
 			get_child(0).queue_free()
-			var battle_scene = preload("res://StageTmp/Action/Battle/Battle.tscn").instantiate()
+			var battle_scene = preload("res://Stage/Action/Battle/Battle.tscn").instantiate()
 			add_child(battle_scene)
 			move_child(battle_scene, 0)
 			battle_scene.set_owner(self)
