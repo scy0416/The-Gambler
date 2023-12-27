@@ -11,6 +11,7 @@ signal data_changed
 
 # 운명 열거형(죽음/행운/헌신/부)
 enum Destiny {DEATH, LUCK, DEVOTION, WEALTH}
+enum Character {c1, c2, c3}
 # 세이브 파일 번호
 #@export var saveNum:int
 # 생명
@@ -25,7 +26,10 @@ enum Destiny {DEATH, LUCK, DEVOTION, WEALTH}
 @export var relics:Array
 # 아이템
 @export var items:Array
-
+# 캐릭터 타입
+@export var character:Character
+@export var savedScene:PackedScene
+@export var savedSceneState:Dictionary
 '''
 func _init(dest:Destiny):
 	life = 100
@@ -173,4 +177,7 @@ func deleteItem(target:Item):
 #========================================
 func getItems()->Array:
 	return items
-	
+
+
+func setCharacter(value):
+	character = value

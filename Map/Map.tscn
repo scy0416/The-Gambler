@@ -1,111 +1,161 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2ovnuxk0q4j3"]
+[gd_scene load_steps=6 format=3 uid="uid://c6vko3lb8iys4"]
 
-[ext_resource type="PackedScene" uid="uid://c1qluswy2ugkn" path="res://Map/MapLevel/MapLevel.tscn" id="1_i2b12"]
-[ext_resource type="Script" path="res://Map/Map.gd" id="1_pvoih"]
-[ext_resource type="Script" path="res://Map/UI.gd" id="2_ga1q1"]
+[ext_resource type="Script" path="res://Map/Map.gd" id="1_lj43a"]
+[ext_resource type="PackedScene" uid="uid://jgjxpamjrn8k" path="res://Map/MapLevel/MapLevel.tscn" id="2_5xjxm"]
 
-[node name="Map" type="Node"]
-script = ExtResource("1_pvoih")
+[sub_resource type="Animation" id="Animation_b6ghf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/ScrollContainer:scroll_vertical")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
-[node name="UI" type="Control" parent="."]
+[sub_resource type="Animation" id="Animation_ytndg"]
+resource_name = "to_bottom"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/ScrollContainer:scroll_vertical")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 2298]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7vr5n"]
+_data = {
+"RESET": SubResource("Animation_b6ghf"),
+"to_bottom": SubResource("Animation_ytndg")
+}
+
+[node name="Map" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_ga1q1")
+script = ExtResource("1_lj43a")
 
-[node name="Lines" type="Control" parent="UI"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ScrollContainer" type="ScrollContainer" parent="UI"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scroll_vertical = 100
+theme_override_constants/margin_top = 40
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/ScrollContainer"]
-clip_contents = true
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MapLevel15" parent="UI/ScrollContainer/VBoxContainer" instance=ExtResource("1_i2b12")]
+[node name="MapLevel15" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 15
 
-[node name="MapLevel14" parent="UI/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("1_i2b12")]
+[node name="MapLevel14" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 14
 nextLevel = NodePath("../MapLevel15")
 
-[node name="MapLevel13" parent="UI/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("1_i2b12")]
+[node name="MapLevel13" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 13
 nextLevel = NodePath("../MapLevel14")
 
-[node name="MapLevel12" parent="UI/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("1_i2b12")]
+[node name="MapLevel12" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 12
 nextLevel = NodePath("../MapLevel13")
 
-[node name="MapLevel11" parent="UI/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("1_i2b12")]
+[node name="MapLevel11" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 11
 nextLevel = NodePath("../MapLevel12")
 
-[node name="MapLevel10" parent="UI/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("1_i2b12")]
+[node name="MapLevel10" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 10
 nextLevel = NodePath("../MapLevel11")
 
-[node name="MapLevel9" parent="UI/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("1_i2b12")]
+[node name="MapLevel9" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 9
 nextLevel = NodePath("../MapLevel10")
 
-[node name="MapLevel8" parent="UI/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("1_i2b12")]
+[node name="MapLevel8" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 8
 nextLevel = NodePath("../MapLevel9")
 
-[node name="MapLevel7" parent="UI/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("1_i2b12")]
+[node name="MapLevel7" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 7
 nextLevel = NodePath("../MapLevel8")
 
-[node name="MapLevel6" parent="UI/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("1_i2b12")]
+[node name="MapLevel6" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 6
 nextLevel = NodePath("../MapLevel7")
 
-[node name="MapLevel5" parent="UI/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("1_i2b12")]
+[node name="MapLevel5" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 5
 nextLevel = NodePath("../MapLevel6")
 
-[node name="MapLevel4" parent="UI/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("1_i2b12")]
+[node name="MapLevel4" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 4
 nextLevel = NodePath("../MapLevel5")
 
-[node name="MapLevel3" parent="UI/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("1_i2b12")]
+[node name="MapLevel3" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 3
 nextLevel = NodePath("../MapLevel4")
 
-[node name="MapLevel2" parent="UI/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("1_i2b12")]
+[node name="MapLevel2" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 2
 nextLevel = NodePath("../MapLevel3")
 
-[node name="MapLevel1" parent="UI/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("1_i2b12")]
+[node name="MapLevel1" parent="MarginContainer/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("nextLevel") instance=ExtResource("2_5xjxm")]
 layout_mode = 2
 level = 1
 nextLevel = NodePath("../MapLevel2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7vr5n")
+}
+
+[connection signal="card_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MapLevel15" to="." method="card_selected"]
+[connection signal="card_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MapLevel14" to="." method="card_selected"]
+[connection signal="card_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MapLevel13" to="." method="card_selected"]
+[connection signal="card_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MapLevel12" to="." method="card_selected"]
+[connection signal="card_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MapLevel11" to="." method="card_selected"]
+[connection signal="card_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MapLevel10" to="." method="card_selected"]
+[connection signal="card_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MapLevel9" to="." method="card_selected"]
+[connection signal="card_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MapLevel8" to="." method="card_selected"]
+[connection signal="card_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MapLevel7" to="." method="card_selected"]
+[connection signal="card_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MapLevel6" to="." method="card_selected"]
+[connection signal="card_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MapLevel5" to="." method="card_selected"]
+[connection signal="card_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MapLevel4" to="." method="card_selected"]
+[connection signal="card_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MapLevel3" to="." method="card_selected"]
+[connection signal="card_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MapLevel2" to="." method="card_selected"]
+[connection signal="card_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MapLevel1" to="." method="card_selected"]

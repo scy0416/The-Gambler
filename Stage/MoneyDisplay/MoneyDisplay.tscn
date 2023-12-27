@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://nj6ch6tiisq6"]
+
+[ext_resource type="Script" path="res://Stage/MoneyDisplay/MoneyDisplay.gd" id="1_lofp0"]
+[ext_resource type="Texture2D" uid="uid://epr3ky7ycvls" path="res://Sprites/HUDSprites/dollar.png" id="2_lvv2d"]
+
+[node name="MoneyDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+script = ExtResource("1_lofp0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Money" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 29
+text = "100"
+horizontal_alignment = 2
+
+[node name="MoneyImage" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_lvv2d")
+expand_mode = 2
+stretch_mode = 4

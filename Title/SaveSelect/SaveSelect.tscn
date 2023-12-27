@@ -1,0 +1,107 @@
+[gd_scene load_steps=4 format=3 uid="uid://oyeqrfugrcf"]
+
+[ext_resource type="PackedScene" uid="uid://8adjm7mxrgtd" path="res://Title/SaveSelect/SaveSlot/SaveSlot.tscn" id="1_eaiuy"]
+[ext_resource type="Script" path="res://Title/SaveSelect/SaveSelect.gd" id="1_hjkta"]
+[ext_resource type="PackedScene" uid="uid://buw2n1a28sode" path="res://Title/CharacterSelect/CharacterSelect.tscn" id="3_mbyhi"]
+
+[node name="SaveSelect" type="Node"]
+script = ExtResource("1_hjkta")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="ContentContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+
+[node name="BackBtn" type="Button" parent="UI/MarginContainer/ContentContainer"]
+layout_mode = 2
+text = "뒤로가기"
+
+[node name="SaveSlotContainer" type="VBoxContainer" parent="UI/MarginContainer/ContentContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SaveSlot1" parent="UI/MarginContainer/ContentContainer/SaveSlotContainer" instance=ExtResource("1_eaiuy")]
+layout_mode = 2
+saveNum = 1
+
+[node name="SaveSlot2" parent="UI/MarginContainer/ContentContainer/SaveSlotContainer" instance=ExtResource("1_eaiuy")]
+layout_mode = 2
+saveNum = 2
+
+[node name="SaveSlot3" parent="UI/MarginContainer/ContentContainer/SaveSlotContainer" instance=ExtResource("1_eaiuy")]
+layout_mode = 2
+saveNum = 3
+
+[node name="CharacterSelect" parent="UI/MarginContainer" instance=ExtResource("3_mbyhi")]
+visible = false
+layout_mode = 2
+
+[node name="DeleteCheck" type="Panel" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/DeleteCheck"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/DeleteCheck/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/DeleteCheck/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "정말 삭제하시겠습니까?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/DeleteCheck/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Apply" type="Button" parent="UI/DeleteCheck/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "예"
+
+[node name="Deny" type="Button" parent="UI/DeleteCheck/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "아니요"
+
+[connection signal="pressed" from="UI/MarginContainer/ContentContainer/BackBtn" to="." method="goTitle"]
+[connection signal="continueClicked" from="UI/MarginContainer/ContentContainer/SaveSlotContainer/SaveSlot1" to="." method="continueGame"]
+[connection signal="deleteClicked" from="UI/MarginContainer/ContentContainer/SaveSlotContainer/SaveSlot1" to="." method="deleteCheck"]
+[connection signal="newGameClicked" from="UI/MarginContainer/ContentContainer/SaveSlotContainer/SaveSlot1" to="." method="newGame"]
+[connection signal="continueClicked" from="UI/MarginContainer/ContentContainer/SaveSlotContainer/SaveSlot2" to="." method="continueGame"]
+[connection signal="deleteClicked" from="UI/MarginContainer/ContentContainer/SaveSlotContainer/SaveSlot2" to="." method="deleteCheck"]
+[connection signal="newGameClicked" from="UI/MarginContainer/ContentContainer/SaveSlotContainer/SaveSlot2" to="." method="newGame"]
+[connection signal="continueClicked" from="UI/MarginContainer/ContentContainer/SaveSlotContainer/SaveSlot3" to="." method="continueGame"]
+[connection signal="deleteClicked" from="UI/MarginContainer/ContentContainer/SaveSlotContainer/SaveSlot3" to="." method="deleteCheck"]
+[connection signal="newGameClicked" from="UI/MarginContainer/ContentContainer/SaveSlotContainer/SaveSlot3" to="." method="newGame"]
+[connection signal="character_select_cancel" from="UI/MarginContainer/CharacterSelect" to="." method="newGameCancel"]
+[connection signal="character_selected" from="UI/MarginContainer/CharacterSelect" to="." method="newGameStart"]
+[connection signal="pressed" from="UI/DeleteCheck/CenterContainer/VBoxContainer/HBoxContainer/Apply" to="." method="deleteApply"]
+[connection signal="pressed" from="UI/DeleteCheck/CenterContainer/VBoxContainer/HBoxContainer/Deny" to="." method="deleteDeny"]

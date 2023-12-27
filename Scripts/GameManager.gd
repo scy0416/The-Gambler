@@ -16,7 +16,7 @@ const SAVE_PATH = "user://"
 # 현재 세이브 데이터 번호
 var saveNum:int = -1
 # 게임 데이터
-var gameData:Resource
+var gameData:Resource = GameData.new() # 이거는 테스트 용으로 실제 게임에서는 없어야 한다.
 # 환경 설정 데이터
 var gameConfigData:Resource
 
@@ -101,11 +101,11 @@ func loadConfigData():
 # 매개변수: targetSaveNum: 목표 데이터 숫자, dest: 설정할 운명
 # 반환값: GameData
 #========================================
-func makeNewGameData(targetSaveNum:int, dest:GameData.Destiny):
+func makeNewGameData(targetSaveNum:int, character:GameData.Character):
 	saveNum = targetSaveNum
 	#gameData = GameData.new(dest)
 	gameData = GameData.new()
-	gameData.setDestiny(dest)
+	gameData.setCharacter(character)
 	saveData()
 
 
