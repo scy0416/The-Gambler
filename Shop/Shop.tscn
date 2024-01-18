@@ -6,8 +6,8 @@
 
 [node name="Shop" type="Node"]
 
-[node name="shopScene" parent="." instance=ExtResource("2_qtshp")]
-
 [node name="ShopBackGround" parent="." instance=ExtResource("2_oeyod")]
 
 [node name="ShopHUD" parent="." instance=ExtResource("1_etxd6")]
+
+[node name="shopScene" parent="." instance=ExtResource("2_qtshp")]

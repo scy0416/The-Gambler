@@ -9,20 +9,25 @@ var normalChecked : Array
 var rareChecked : Array
 var legendaryChecked : Array
 
+var normalCount : int
+var rareCount : int
+var legendaryCount: int
+
+var allSellRelics : int
+
 
 func _ready():
 	genRelics.genRelics()
+	allSellRelics = genRelics.normalRelics.size() + genRelics.rareRelics.size() + genRelics.legendaryRelics.size()
 	initializeChecked()
 	$goShop.pressed.connect(self.goShop)
 	$shop/rerollB.pressed.connect(self.rerollRelics)
+	$invenB.pressed.connect(self.viewInven)	
 	drawScene()
-	
-
 #목적: 골드를 프레임 단위로 업데이트한다.	
 func _process(_delta):
 	$shop/shopGold.text = "GOLD: " + str(gameData.getGold())
 	$inven/invenGold.text = "GOLD: " + str(gameData.getGold())
-	$invenB.pressed.connect(self.viewInven)	
 
 #목적: inventory에서 shop으로 이동한다.	
 func goShop():
@@ -68,14 +73,24 @@ func drawRelics():
 	for i in 8:
 		var rarity = rng.randf_range(0, 1)
 		rarity = weightedRarity(rarity)
+		if(rarity == Relic.whatRare.NORMAL and normalCount >= genRelics.normalRelics.size()):
+			rarity = rng.randf_range(0.65, 1)
+			rarity = weightedRarity(rarity)
+			
+		while(rarity == Relic.whatRare.RARE and rareCount >= genRelics.rareRelics.size()):
+			rarity = rng.randf_range(0, 1)
+			rarity = weightedRarity(rarity)
+
+		if(rarity == Relic.whatRare.LEGENDARY and legendaryCount >= genRelics.legendaryRelics.size()):
+			rarity = rng.randf_range(0, 0.89)
+			rarity = weightedRarity(rarity)		
+		
 		var foundRelic = findRelic(rarity)
 		var button = Button.new()
 		var relicGold = foundRelic.price
 		foundRelic.button.text = str(relicGold) + "\n" + foundRelic.description
 		foundRelic.button.connect("pressed", buyRelic.bind(foundRelic))
-		$shop/relicContainer.add_child(foundRelic.button)
-				
-	
+		$shop/relicContainer.add_child(foundRelic.button)		
 	
 #목적: 레어도에 따른 가중치 부여. 
 func weightedRarity(r):
@@ -120,6 +135,12 @@ func buyRelic(relic):
 		relic.button.connect("pressed", sellRelic.bind(relic))
 		$shop/relicContainer.remove_child(relic.button)
 		$inven/invenContainer.add_child(relic.button)
+		if(relic.rarity == Relic.whatRare.NORMAL):
+			normalCount += 1
+		if(relic.rarity == Relic.whatRare.RARE):
+			rareCount += 1
+		if(relic.rarity == Relic.whatRare.LEGENDARY):
+			legendaryCount += 1		
 		if(gameData.getGold() < 10):
 			$shop/rerollB.disabled = true
 	else:
