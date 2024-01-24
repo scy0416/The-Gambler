@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://425dbv7c7sw6"
-path="res://.godot/imported/Spade4.jpg-0565d280b7fa1182c00236c188ecf49f.ctex"
+uid="uid://cgq6xgaxhoi5d"
+path="res://.godot/imported/Diamond1.png-f749f2cc1db36994e6fdde2c4603ac18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Card/Resource/Spade4.jpg"
-dest_files=["res://.godot/imported/Spade4.jpg-0565d280b7fa1182c00236c188ecf49f.ctex"]
+source_file="res://Card/Resource/Diamond1.png"
+dest_files=["res://.godot/imported/Diamond1.png-f749f2cc1db36994e6fdde2c4603ac18.ctex"]
 
 [params]
 
