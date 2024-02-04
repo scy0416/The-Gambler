@@ -41,8 +41,8 @@ func deactivate_interact():
 		level.deactivate_interact()
 
 func _ready():
-	initial()
 	if GameManager.gameData.savedSceneState.is_empty():
+		initial()
 		return
 	update()
 
@@ -51,7 +51,7 @@ func initial():
 		level.MakeMapNode()
 	for map in level15.mapNodeList:
 		map.flip()
-	await get_tree().create_timer(.9).timeout
+	await get_tree().create_timer(1).timeout
 	$AnimationPlayer.play("to_bottom")
 	await get_tree().create_timer(1).timeout
 	level1.map1.flip()
@@ -59,6 +59,7 @@ func initial():
 	level1.map5.flip()
 	level1.map7.flip()
 	level1.activate_level()
+	await get_tree().create_timer(.1).timeout
 	
 	saveState()
 
