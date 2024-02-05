@@ -11,7 +11,6 @@ var hover_icon_modulate = Color(0.8, 0.8, 0.8, 1)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_button_icon(load(cardImage))
-	scale *= 0.8
 
 func _on_mouse_entered():
 	modulate = hover_icon_modulate

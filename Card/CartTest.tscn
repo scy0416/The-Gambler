@@ -173,55 +173,21 @@ text = "행동선택"
 
 [node name="DrawButton" type="Button" parent="Player/Buttons"]
 visible = false
-offset_left = 269.0
-offset_top = 311.0
-offset_right = 307.0
-offset_bottom = 333.0
-theme_override_font_sizes/font_size = 10
+offset_left = 140.0
+offset_top = 331.0
+offset_right = 200.0
+offset_bottom = 371.0
+theme_override_font_sizes/font_size = 15
 text = "드로우"
-
-[node name="MoveButton" type="Button" parent="Player/Buttons"]
-visible = false
-offset_left = 270.0
-offset_top = 337.0
-offset_right = 308.0
-offset_bottom = 359.0
-theme_override_font_sizes/font_size = 10
-text = "이동"
 
 [node name="AttackButton" type="Button" parent="Player/Buttons"]
 visible = false
-offset_left = 270.0
-offset_top = 361.0
-offset_right = 308.0
-offset_bottom = 383.0
-theme_override_font_sizes/font_size = 10
-text = "공격"
-
-[node name="PlayerHP" type="ProgressBar" parent="Player"]
-offset_left = 94.0
-offset_top = 10.0
-offset_right = 205.0
-offset_bottom = 37.0
-show_percentage = false
-
-[node name="PLabel" type="Label" parent="Player/PlayerHP"]
-layout_mode = 0
-offset_left = 32.0
-offset_right = 81.0
-offset_bottom = 26.0
-text = "HP: 50"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PShield" type="Label" parent="Player"]
 offset_left = 239.0
-offset_top = 10.0
-offset_right = 328.0
-offset_bottom = 36.0
-text = "Shield: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_top = 332.0
+offset_right = 299.0
+offset_bottom = 372.0
+theme_override_font_sizes/font_size = 15
+text = "공격"
 
 [node name="Enemy" type="Node2D" parent="."]
 
@@ -251,8 +217,39 @@ vertical_alignment = 1
 
 [node name="Card" type="Node2D" parent="."]
 
-[node name="Label" type="Label" parent="."]
+[node name="UIs" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UIs"]
 offset_left = 224.0
 offset_top = 114.0
 offset_right = 332.0
 offset_bottom = 137.0
+
+[node name="PlayerHP" type="ProgressBar" parent="UIs"]
+offset_left = 94.0
+offset_top = 10.0
+offset_right = 205.0
+offset_bottom = 37.0
+show_percentage = false
+
+[node name="PLabel" type="Label" parent="UIs/PlayerHP"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 81.0
+offset_bottom = 26.0
+text = "HP: 50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PShield" type="Label" parent="UIs"]
+offset_left = 239.0
+offset_top = 10.0
+offset_right = 328.0
+offset_bottom = 36.0
+text = "Shield: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
