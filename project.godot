@@ -10,6 +10,29 @@ config_version=5
 
 [application]
 
-config/name="autotile"
-config/features=PackedStringArray("4.2", "Forward Plus")
+config/name="The Gambler"
+run/main_scene="res://Title/Title.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="The Gambler"
+config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://Scripts/GameManager.gd"
+
+[editor]
+
+export/convert_text_resources_to_binary=false
+
+[input]
+
+Click={
+"deadzone": 0.5,
+"events": []
+}
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"
