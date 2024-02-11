@@ -26,10 +26,18 @@ Cards="*res://Card/Cards.tscn"
 
 window/stretch/mode="canvas_items"
 
+[dotnet]
+
+project/assembly_name="The Gambler"
+
 [editor]
 
 movie_writer/movie_file="C:/Users/scy0416/Documents/godot video maker/the gambler test video.avi"
 export/convert_text_resources_to_binary=false
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/description/plugin.cfg")
 
 [input]
 
@@ -41,4 +49,3 @@ Click={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="mobile"

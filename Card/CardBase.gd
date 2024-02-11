@@ -8,12 +8,15 @@ var cardName = "Clover1"
 
 var normal_icon_modulate = Color(1, 1, 1, 1)
 var hover_icon_modulate = Color(0.8, 0.8, 0.8, 1)
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	set_button_icon(load(cardImage))
+	set_size(Vector2(90, 163))
+	mouse_entered.connect(mouse_i)
+	mouse_exited.connect(mouse_o)
 
-func _on_mouse_entered():
-	modulate = hover_icon_modulate
-	
-func _on_mouse_exited():
-	modulate =	normal_icon_modulate
+
+func mouse_i():
+	modulate = Color(0.8, 0.8, 0.8, 1)
+func mouse_o():
+	modulate = Color(1, 1, 1, 1)
