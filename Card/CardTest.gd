@@ -1,8 +1,7 @@
 extends Node
 
-enum handType{Top, One, Two, Triple, Straight, Flush}
 var rng = RandomNumberGenerator.new()
-var playerX : int
+var playerX : int                
 var playerY : int
 var sumNumber : int
 var enemyHP = 1000.0
@@ -28,13 +27,14 @@ var ovalAngle = Vector2()
 
 const CardBase = preload("res://Card/CardBase.tscn")
 const cardDataBase = preload("res://Card/CardDatabase.gd")
-const changeScene = preload("res://Card/changeScene.tscn")
+const pChangeScene = preload("res://Card/changeScene.tscn")
 var deckScript = preload("res://Card/Deck.gd").new()
 
 var cardSelected = []
 @onready var deckSize = cardDataBase.CardList.size()
 var myHands : Array
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
 	deckScript.genDeck()
 	$DeckButton.pressed.connect(self.showDeck)
@@ -45,6 +45,7 @@ func _ready():
 	
 	var index = 0
 	
+	#CardBase 노드를 인스턴스화하여 덱에 추가한다.
 	for i in deckScript.deck:
 		var new_card = CardBase.instantiate()
 		new_card.set_position(Vector2(200 + 100 * (index % 7), 80 + 180 * (index / 7)))
@@ -60,6 +61,7 @@ func _process(delta):
 	$UIs/PShield.text = "Shield: " + str(playerShield)	
 	$Enemy/EnemyHP.value = enemyHP
 	$UIs/PlayerHP.value = playerHP		
+					
 					
 func _input(event):
 	if event is InputEventKey and event.pressed and checkChangeScene == false:
@@ -91,17 +93,15 @@ func _input(event):
 			attack()									
 	
 
+#목적: 카드를 덱에서 뽑는다.
 func draw():
 	if(deckCards.is_empty()):
 		cemetryToDeck()
 	var new_card = deckCards.back()
-	#cardSelected = rng.randi_range(0, deckSize - 1)
-	#new_card.cardName = cardDataBase.CardList[cardSelected]
 	deckCards.pop_back()
 	ovalAngle = Vector2(HorRad * cos(angle), -VerRad * sin(angle))
 	new_card.set_position(centerCardOval + ovalAngle - new_card.get_size()/2)
 	new_card.rotation = deg_to_rad(90) - angle
-	#new_card.connect("pressed", change.bind(new_card))
 	
 	var cardIndex = cardDataBase[new_card.cardName]
 	var cardInfo = cardDataBase.DATA[cardIndex]
@@ -140,12 +140,14 @@ func draw():
 				playerShield += number
 			3: 
 				enemyHP = enemyHP - sumNumber * 1.0	
+				
+#목적: 카드를 교체한다.				
 func change(card):
-	goDeck(card)	
-	#교체 효과와 드로우 효과가 다르므로 수정 필요 
+	goCemetry(card)	
 	draw()
-		
-func goDeck(card):
+	
+#목적: 카드를 묘지로 보낸다.		
+func goCemetry(card):
 	$Card.remove_child(card)
 	$Cemetry.add_child(card)
 	cemetryCards.push_back(card)
@@ -157,17 +159,17 @@ func goDeck(card):
 		ovalAngle = Vector2(HorRad * cos(angle), -VerRad * sin(angle))
 		i.set_position(centerCardOval + ovalAngle - i.get_size()/2)
 		i.rotation = deg_to_rad(90) - angle		
-		angle -= 0.3	
+		angle -= 0.3
+		
+			
 func move():
 	pass
 	
-
-	
+#목적: 공격한다.
 func attack():	
 	var numbers = []
 	var types = []
 	var size = myHands.size()
-	var index = 0
 	
 	
 	for i in myHands:
@@ -184,7 +186,7 @@ func attack():
 	for i in size:
 		myHands.pop_back()
 	angle = deg_to_rad(90) + 0.7	
-	 	
+	
 	
 	if(hand != null):
 		$UIs/Label.text = hand
@@ -202,6 +204,7 @@ func attack():
 			"FOUR CARD": pass	
 			"STRAIGHT FLUSH": pass	
 	
+#목적: 족보를 확인한다.	
 func checkHand(numbers, types):
 	var pairCount = 0
 	var pSum = 0
@@ -209,7 +212,6 @@ func checkHand(numbers, types):
 	var tSum = 0
 	var straightCount = 0
 	var flushCount = 0
-	var fHCount = 0
 	var fourCount = 0
 	var fSum = 0
 	var stFlush = 0
@@ -292,14 +294,18 @@ func checkHand(numbers, types):
 		damage = 1.0 *((max + playerAttack) - enemyDefence)							
 		return "TOP"		
 	
-func findNumber(name):
-	return cardDataBase.DATA[cardDataBase[name]][1]
-func findType(name):
-	return cardDataBase.DATA[cardDataBase[name]][2]	
+#목적: 이름에 맞는 숫자를 찾는다. 예) Clover1이면 1 출력	
+func findNumber(n):
+	return cardDataBase.DATA[cardDataBase[n]][1]
+	
+#목적: 이름에 맞는 타입을 찾는다. 예) Clover1이면 0(클로버에 해당하는 int값) 출력	
+func findType(n):
+	return cardDataBase.DATA[cardDataBase[n]][2]	
 	
 	
+#교체 화면을 띄운다.	
 func viewChangeScene():
-	var changeScene = changeScene.instantiate()
+	var changeScene = pChangeScene.instantiate()
 	checkChangeScene = true
 	add_child(changeScene)
 	$changeScene/Button.connect("pressed", exchange)
@@ -311,6 +317,7 @@ func viewChangeScene():
 		#i.disconnect("pressed", change)
 		i.connect("pressed", changeScenePressed.bind(i))	
 		
+#교체할 카드가 선택되었을 때 작동한다.	
 func changeScenePressed(card):
 	clickedButton = card
 	var checked = false
@@ -325,10 +332,13 @@ func changeScenePressed(card):
 			angle += 0.3
 		angle -= 0.3
 	card.rotation = deg_to_rad(0)
+	card.get_child(0).visible = false
 	$changeScene/PanelContainer.visible = false
 	$changeScene/Button.disabled = false
 	card.set_position($changeScene/PanelContainer.get_position())
    
+
+#교체창에서 확인버튼이 눌리면 작동한다.
 func exchange():
 	$changeScene.visible = false
 	$TileMap.modulate = Color(1, 1, 1, 1)
@@ -341,6 +351,7 @@ func exchange():
 	remove_child($changeScene)		
 	checkChangeScene = false
 	
+#덱을 화면에 띄운다.	
 func showDeck():
 	$Cemetry.visible = false
 	if($Deck.visible == false):
@@ -352,7 +363,8 @@ func showDeck():
 		$Deck.visible = false	
 		for i in self.get_children():
 			i.modulate = Color(1, 1, 1, 1)
-			
+		
+#묘지를 화면에 띄운다.			
 func showCemetry():
 	$Deck.visible = false
 	var index = 0
@@ -372,6 +384,7 @@ func showCemetry():
 		for i in self.get_children():
 			i.modulate = Color(1, 1, 1, 1)		
 	
+#묘지의 카드들을 랜덤한 순서로 덱에 추가한다.	
 func cemetryToDeck():
 	cemetryCards.shuffle()
 	for i in cemetryCards.size():
@@ -388,4 +401,5 @@ func cemetryToDeck():
 		i.rotation = deg_to_rad(0)	
 		$Deck.add_child(i)
 		index += 1
+
 
