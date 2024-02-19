@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://q52p8ub1ab2w"]
+
+[ext_resource type="Script" path="res://CardMap/Level/Level.gd" id="1_358jr"]
+[ext_resource type="PackedScene" uid="uid://cct86g6kyslf7" path="res://CardMap/Card/Card.tscn" id="1_i44g3"]
+
+[node name="Level" type="Control"]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_358jr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Card1" parent="HBoxContainer" instance=ExtResource("1_i44g3")]
+layout_mode = 2
+
+[node name="Card2" parent="HBoxContainer" instance=ExtResource("1_i44g3")]
+layout_mode = 2
+
+[node name="Card3" parent="HBoxContainer" instance=ExtResource("1_i44g3")]
+layout_mode = 2
+
+[node name="Card4" parent="HBoxContainer" instance=ExtResource("1_i44g3")]
+layout_mode = 2
+
+[node name="Card5" parent="HBoxContainer" instance=ExtResource("1_i44g3")]
+layout_mode = 2
+
+[node name="Card6" parent="HBoxContainer" instance=ExtResource("1_i44g3")]
+layout_mode = 2
+
+[node name="Card7" parent="HBoxContainer" instance=ExtResource("1_i44g3")]
+layout_mode = 2
+
+[connection signal="card_button_clicked" from="HBoxContainer/Card1" to="." method="card_select" binds= [0]]
+[connection signal="card_button_clicked" from="HBoxContainer/Card2" to="." method="card_select" binds= [1]]
+[connection signal="card_button_clicked" from="HBoxContainer/Card3" to="." method="card_select" binds= [2]]
+[connection signal="card_button_clicked" from="HBoxContainer/Card4" to="." method="card_select" binds= [3]]
+[connection signal="card_button_clicked" from="HBoxContainer/Card5" to="." method="card_select" binds= [4]]
+[connection signal="card_button_clicked" from="HBoxContainer/Card6" to="." method="card_select" binds= [5]]
+[connection signal="card_button_clicked" from="HBoxContainer/Card7" to="." method="card_select" binds= [6]]

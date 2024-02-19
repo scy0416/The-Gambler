@@ -28,7 +28,10 @@ enum Character {c1, c2, c3}
 @export var items:Array
 # 캐릭터 타입
 @export var character:Character
+# 저장된 씬
 @export var savedScene:PackedScene
+# 맵 정보
+@export var map_resource:Resource = null
 @export var savedSceneState:Dictionary
 '''
 func _init(dest:Destiny):

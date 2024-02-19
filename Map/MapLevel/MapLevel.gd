@@ -1,5 +1,5 @@
 extends Control
-class_name MapLevel
+class_name MapLeve
 
 signal card_selected(type, num)
 
