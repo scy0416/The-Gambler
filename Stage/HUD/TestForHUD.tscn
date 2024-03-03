@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy5owv3cv53g4"]
+
+[ext_resource type="Texture2D" uid="uid://b7ysslj2oqhnd" path="res://Sprites/MapSprites/cardBack_blue1.png" id="1_sk7yw"]
+
+[node name="TestForHUD" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(74, 98)
+texture = ExtResource("1_sk7yw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(1004, -1)
+texture = ExtResource("1_sk7yw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Sprite2D"]
+position = Vector2(-1006, 455)
+texture = ExtResource("1_sk7yw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Sprite2D/Sprite2D"]
+position = Vector2(1008, -4)
+texture = ExtResource("1_sk7yw")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5xu62xxqjglo"]
+[gd_scene load_steps=5 format=3 uid="uid://b5xu62xxqjglo"]
 
 [ext_resource type="Texture2D" uid="uid://djs2q0ff0a0ke" path="res://Sprites/flask_empty.png" id="1_hjhjk"]
 [ext_resource type="Texture2D" uid="uid://dh34blqcgfkoc" path="res://Sprites/barsHorizontal.png" id="2_awemo"]
+[ext_resource type="PackedScene" uid="uid://cy5owv3cv53g4" path="res://Stage/HUD/TestForHUD.tscn" id="2_bgycg"]
 [ext_resource type="Texture2D" uid="uid://b7ysslj2oqhnd" path="res://Sprites/MapSprites/cardBack_blue1.png" id="3_bxfj3"]
 
 [node name="HUD" type="Control"]
@@ -119,9 +120,23 @@ size_flags_vertical = 4
 value = 50.0
 show_percentage = false
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_right = 48
+
+[node name="SubViewport" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/SubViewport"]
+handle_input_locally = false
+size = Vector2i(932, 524)
+size_2d_override = Vector2i(1152, 648)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="TestForHUD" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/SubViewport/SubViewport" instance=ExtResource("2_bgycg")]
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
