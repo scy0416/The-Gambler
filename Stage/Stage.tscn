@@ -1,14 +1,89 @@
-[gd_scene load_steps=5 format=3 uid="uid://g37k5u3vhne"]
+[gd_scene load_steps=5 format=3 uid="uid://thrgiuhow2gg"]
 
-[ext_resource type="Script" path="res://Stage/Stage.gd" id="1_yua61"]
 [ext_resource type="PackedScene" uid="uid://chs11gxbxlg8a" path="res://Stage/Action/DestinySelect/DestinySelect.tscn" id="2_32g7g"]
 [ext_resource type="PackedScene" uid="uid://c6vko3lb8iys4" path="res://Map/Map.tscn" id="3_8xyfv"]
-[ext_resource type="PackedScene" uid="uid://ce4qdkt72ossd" path="res://Stage/HUD/HUD.tscn" id="4_qop1g"]
+[ext_resource type="PackedScene" uid="uid://b5xu62xxqjglo" path="res://Stage/HUD/HUD.tscn" id="4_qop1g"]
+
+[sub_resource type="GDScript" id="GDScript_mi7j6"]
+script/source = "extends Node
+
+@onready var map = $Map
+
+var mapVisible:bool:
+	set(value):
+		mapVisible = value
+		if not value:
+			map.visible = false
+		else:
+			map.visible = true
+
+func _ready():
+	initial()
+	if GameManager.gameData.savedSceneState.is_empty():
+		saveState()
+		return
+	update()
+
+func initial():
+	map.interactable = false
+	mapVisible = false
+
+func update():
+	mapVisible = GameManager.gameData.savedSceneState[\"mapVisible\"]
+	if mapVisible:
+		map.visible = true
+	else:
+		map.visible = false
+	get_child(0).update()
+
+func saveState():
+	GameManager.gameData.savedSceneState[\"mapVisible\"] = mapVisible
+	GameManager.gameData.savedSceneState[\"map_activate\"] = map.interactable
+	var current_scene = get_tree().current_scene
+	var packed_scene = PackedScene.new()
+	if packed_scene.pack(current_scene) == OK:
+		GameManager.gameData.savedScene = packed_scene
+		GameManager.saveData()
+	map.saveState()
+	get_child(0).saveState()
+	GameManager.saveData()
+
+func action_done():
+	print(\"맵 활성화\")
+	get_child(0).deactivate()
+	
+	map.interactable = true
+	mapVisible = true
+	map.activate_interact()
+	get_tree().create_timer(1).timeout
+	
+	saveState()
+
+func action_start(type):
+	get_child(0).is_stage_done = true
+	map.interactable = false
+	map.deactivate_interact()
+	await get_tree().create_timer(1.5).timeout
+	mapVisible = false
+	match type:
+		\"일반 적\":
+			get_child(0).set_owner(null)
+			get_child(0).queue_free()
+			var battle_scene = preload(\"res://Stage/Action/Battle/Battle.tscn\").instantiate()
+			add_child(battle_scene)
+			move_child(battle_scene, 0)
+			battle_scene.set_owner(self)
+	saveState()
+
+func saveAndQuit():
+	get_tree().change_scene_to_file(\"res://Title/Title.tscn\")
+"
 
 [node name="Stage" type="Node"]
-script = ExtResource("1_yua61")
+script = SubResource("GDScript_mi7j6")
 
 [node name="DestinySelect" parent="." instance=ExtResource("2_32g7g")]
+visible = false
 
 [node name="Map" parent="." instance=ExtResource("3_8xyfv")]
 visible = false
@@ -19,4 +94,3 @@ mouse_filter = 2
 
 [connection signal="stage_done" from="DestinySelect" to="." method="action_done"]
 [connection signal="start_stage" from="Map" to="." method="action_start"]
-[connection signal="saveQuit" from="HUD" to="." method="saveAndQuit"]
