@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="tempData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Card/tempData.gd" id="1_dfp3c"]
+
+[resource]
+script = ExtResource("1_dfp3c")
+eArray = ["ENEMY", "DUMMY", "1000", "10", "10", "1", "1", "3", "LONG", "DUMMY-WEAK
+ ENEMY"]
+pArray = ["PLAYER", "HERO", "50", "10", "1", "0", "1", "THE PROTAGONIST
+ OF THIS GAME"]

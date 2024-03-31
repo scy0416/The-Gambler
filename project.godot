@@ -37,7 +37,7 @@ export/convert_text_resources_to_binary=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/description/plugin.cfg")
+enabled=PackedStringArray("res://addons/mydock/plugin.cfg")
 
 [input]
 
@@ -45,6 +45,12 @@ Click={
 "deadzone": 0.5,
 "events": []
 }
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="player"
+2d_physics/layer_3="item"
 
 [rendering]
 

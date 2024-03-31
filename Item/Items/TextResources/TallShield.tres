@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Items" load_steps=3 format=3 uid="uid://cnle3y5glaxao"]
+
+[ext_resource type="Script" path="res://Item/Items/Items.gd" id="1_2ipmh"]
+[ext_resource type="Texture2D" uid="uid://buw5rh0sbtejo" path="res://Item/Items/Sprites/TallShield.png" id="2_74x42"]
+
+[resource]
+script = ExtResource("1_2ipmh")
+name = "Tall Shield"
+texture = ExtResource("2_74x42")
+itemDesc = "Simple shiled"

@@ -1,1 +1,4 @@
+Items
+Inventory
+Item
 GameConfigData

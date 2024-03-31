@@ -1,7 +1,9 @@
 extends Node 
 
+var gameData = GameData.new()
+
 enum {Clover1, Clover2, Clover3, Clover4, Clover5, Diamond1, Diamond2, Heart1, Heart2, Heart3, Heart4, Spade1 
-,Spade2, Spade3, Spade4, Spade5}
+,Spade2, Spade3, Spade4, Spade5, Player, Enemy}
 
 const CardList = ["Clover1", "Clover2", "Clover3", "Clover4", "Clover5", "Diamond1", "Diamond2", "Heart1", "Heart2"
 , "Heart3", "Heart4", "Spade1" ,"Spade2", "Spade3", "Spade4", "Spade5"]
@@ -39,4 +41,11 @@ const DATA = {
 	["Spade", 4, 3],
 	Spade5:
 	["Spade", 5, 3]		
+}
+
+const ExtraData = {
+	Player: 
+	["Player", 100, "\nThe Protagonist of\nthis game"],
+	Enemy:
+	["Enemy", 100, "\nThe Enemy of\nthis game"]
 }

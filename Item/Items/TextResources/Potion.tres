@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Items" load_steps=3 format=3 uid="uid://db7fj5pirdxu8"]
+
+[ext_resource type="Script" path="res://Item/Items/Items.gd" id="1_geg08"]
+[ext_resource type="Texture2D" uid="uid://bsrn7l7hej0tf" path="res://Item/Items/Sprites/Potion.png" id="2_filov"]
+
+[resource]
+script = ExtResource("1_geg08")
+name = "Potion"
+texture = ExtResource("2_filov")
+itemDesc = "Simple potionn"

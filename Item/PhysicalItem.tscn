@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnklbdktwdnlj"]
+
+[ext_resource type="Texture2D" uid="uid://nayko82h8hg6" path="res://Item/Items/Sprites/Sword.png" id="1_fgst5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8eo1v"]
+radius = 13.0
+height = 28.0
+
+[node name="PhysicalItem" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_8eo1v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fgst5")

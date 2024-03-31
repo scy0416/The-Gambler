@@ -4,24 +4,27 @@ var rng = RandomNumberGenerator.new()
 var playerX : int                
 var playerY : int
 var sumNumber : int
-var enemyHP = 1000.0
-var playerHP = 50.0
-var playerAttack = 10.0
+@export var enemyHP = 1000.0
+@export var playerHP = 50.0
+@export var playerAttack = 10.0
+@export var enemyAttack = 10.0
+@export var enemyDef = 10.0
 var playerShield = 0.0
 var enemyDefence = 10.0
-var cardArray : Array
-var buttons : Array
+@export var cardArray : Array
+@export var buttons : Array
 var clickedButton : Button
 var damage = 0.0
-var checkChangeScene = false
-var cemetryCards : Array
-var deckCards : Array
+@export var checkChangeScene = false
+@export var cemetryCards : Array
+@export var deckCards : Array
 
 @onready var gameSizeX = 560
 @onready var gameSizeY = 550
 @onready var centerCardOval = Vector2(100 + gameSizeX * 0.5, 50 + gameSizeY * 1.25)
 @onready var HorRad = gameSizeX * 0.45
 @onready var VerRad = gameSizeY * 0.4
+@onready var panelPosition = $Panel.position
 var angle = deg_to_rad(90) + 0.7
 var ovalAngle = Vector2()
 
@@ -33,7 +36,9 @@ var deckScript = preload("res://Card/Deck.gd").new()
 var cardSelected = []
 @onready var deckSize = cardDataBase.CardList.size()
 var myHands : Array
+var tData = tempData.new()
 
+var inven = preload("res://Item/Items/inventory.tres")
 
 func _ready():
 	deckScript.genDeck()
@@ -43,6 +48,9 @@ func _ready():
 	playerY = $Player/Sprite2D.position.y
 	$Player/TextureRect.texture = load(str("res://Card//Resource/" + deckScript.deck.back() + ".png"))
 	
+	var item = load("res://Item/Items/TextResources/Sword.tres")
+	
+	inven.set_item(0, item)
 	var index = 0
 	
 	#CardBase 노드를 인스턴스화하여 덱에 추가한다.
@@ -53,38 +61,44 @@ func _ready():
 		$Deck.add_child(new_card)
 		deckCards.push_back(new_card)
 		index += 1
-		
+	
+	index = 0	
+	for i in $InventoryContainer.get_child(0).get_children():
+		i.connect("mouse_entered", mouse_i.bind(i, index))
+		i.connect("mouse_exited", mouse_o.bind(i, index))
+		index += 1
 
 func _process(delta):
 	$Enemy/EnemyHP/ELabel.text = "HP: " + str(enemyHP)	
 	$UIs/PlayerHP/PLabel.text = "HP: " + str(playerHP)
 	$UIs/PShield.text = "Shield: " + str(playerShield)	
 	$Enemy/EnemyHP.value = enemyHP
-	$UIs/PlayerHP.value = playerHP		
+	$UIs/PlayerHP.value = playerHP	
+	enemyHP = float(ResourceLoader.load("res://tempResource.tres").eArray[2])
 					
 					
 func _input(event):
 	if event is InputEventKey and event.pressed and checkChangeScene == false:
 		if event.keycode == KEY_LEFT or event.keycode == KEY_A:
-			$Player.set_position($Player.get_position() + Vector2(-10,0))	
+			$Player.set_position($Player.get_position() + Vector2(-30,0))	
 			if(myHands.size() >= 5):
 				viewChangeScene()
 			if(myHands.size() < 5):
 				draw()
 		if event.keycode == KEY_RIGHT or event.keycode == KEY_D:
-			$Player.set_position($Player.get_position() + Vector2(10,0))
+			$Player.set_position($Player.get_position() + Vector2(30,0))
 			if(myHands.size() >= 5):
 				viewChangeScene()
 			if(myHands.size() < 5):
 				draw()	
 		if event.keycode == KEY_UP or event.keycode == KEY_W:
-			$Player.set_position($Player.get_position() + Vector2(0,-10))
+			$Player.set_position($Player.get_position() + Vector2(0,-30))
 			if(myHands.size() >= 5):
 				viewChangeScene()	
 			if(myHands.size() < 5):
 				draw()
 		if event.keycode == KEY_DOWN or event.keycode == KEY_S:
-			$Player.set_position($Player.get_position() + Vector2(0, 10))
+			$Player.set_position($Player.get_position() + Vector2(0, 30))
 			if(myHands.size() >= 5):
 				viewChangeScene()	
 			if(myHands.size() < 5):
@@ -140,7 +154,9 @@ func draw():
 				playerShield += number
 			3: 
 				enemyHP = enemyHP - sumNumber * 1.0	
-				
+	updatePlayerInfo(str(playerHP), str(playerAttack), str(myHands.size()))
+	updateEnemyInfo(str(enemyHP), str(enemyAttack), str(enemyDef))	
+	ResourceSaver.save(tData, "res://tempResource.tres")
 #목적: 카드를 교체한다.				
 func change(card):
 	goCemetry(card)	
@@ -203,7 +219,9 @@ func attack():
 				draw()
 			"FOUR CARD": pass	
 			"STRAIGHT FLUSH": pass	
-	
+	updatePlayerInfo(str(playerHP), str(playerAttack), str(myHands.size()))
+	updateEnemyInfo(str(enemyHP), str(enemyAttack), str(enemyDef))	
+	ResourceSaver.save(tData, "res://tempResource.tres")
 #목적: 족보를 확인한다.	
 func checkHand(numbers, types):
 	var pairCount = 0
@@ -402,4 +420,30 @@ func cemetryToDeck():
 		$Deck.add_child(i)
 		index += 1
 
+func updatePlayerInfo(hp, atk, hand):
+	tData.pArray[2] = hp
+	tData.pArray[3] = atk
+	tData.pArray[5] = hand
 
+func updateEnemyInfo(hp, atk, def):
+	tData.eArray[2] = hp
+	tData.eArray[3] = atk
+	tData.eArray[4] = def
+
+func mouse_i(i, index):
+	$Panel.set_position(panelPosition + Vector2(0, index * 70))
+	$Panel.get_child(0).set_text(i.itemNow.itemDesc)
+	showDescription()
+	i.scale *= 1.2
+func mouse_o(i, index):
+	exitDescription()
+	i.scale /= 1.2
+	
+	
+func showDescription():
+	$Panel.visible = true
+
+
+
+func exitDescription():
+	$Panel.visible = false

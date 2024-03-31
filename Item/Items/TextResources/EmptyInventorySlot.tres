@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Items" load_steps=3 format=3 uid="uid://df6pdgayliui6"]
+
+[ext_resource type="Script" path="res://Item/Items/Items.gd" id="1_hiua5"]
+[ext_resource type="Texture2D" uid="uid://cpjsfkn5pk13g" path="res://Item/Items/Sprites/EmptyInventorySlot.png" id="2_4fu3e"]
+
+[resource]
+script = ExtResource("1_hiua5")
+name = "EmptyInventorySlot"
+texture = ExtResource("2_4fu3e")
+itemDesc = "Empty Slot"
