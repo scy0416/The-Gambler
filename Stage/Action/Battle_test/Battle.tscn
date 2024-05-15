@@ -1,0 +1,340 @@
+[gd_scene load_steps=16 format=3 uid="uid://4ak8d1d4aw7y"]
+
+[ext_resource type="Script" path="res://Stage/Action/Battle_test/Battle.gd" id="1_djnq0"]
+[ext_resource type="TileSet" uid="uid://jbnt1uke66pd" path="res://Stage/Action/Battle/stage_tileset.tres" id="1_frogh"]
+[ext_resource type="Texture2D" uid="uid://vahurlu4wolo" path="res://Sprites/Player1/Idle.png" id="2_d12gd"]
+[ext_resource type="Script" path="res://Stage/Action/Battle_test/Player.gd" id="3_rp7mu"]
+[ext_resource type="Texture2D" uid="uid://dn2op8bwo4sjk" path="res://Sprites/card/clover/clover_1.png" id="5_5ahtt"]
+[ext_resource type="Script" path="res://Stage/Action/Battle_test/Enemy.gd" id="6_qe0n4"]
+[ext_resource type="Texture2D" uid="uid://wy242bnb6ehr" path="res://Sprites/Enemy1/Idle.png" id="7_usiuf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnsso"]
+atlas = ExtResource("2_d12gd")
+region = Rect2(0, 64, 768, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ky6k"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yc422"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vsb1"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt7e3"]
+atlas = ExtResource("7_usiuf")
+region = Rect2(0, 64, 896, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jb4m"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4m3l3"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6woc"]
+size = Vector2(32, 32)
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_djnq0")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_frogh")
+collision_visibility_mode = 1
+format = 2
+layer_0/tile_data = PackedInt32Array(65553, 458753, 10, 458769, 720897, 4, 393233, 720897, 2, 327697, 720897, 2, 262161, 720897, 2, 196625, 720897, 2, 131089, 720897, 2, 65552, 524289, 0, 65551, 524289, 0, 65550, 524289, 0, 65549, 524289, 0, 65548, 524289, 0, 65547, 393217, 0, 196609, 393217, 0, 262144, 393217, 0, 327681, 458753, 4, 327682, 458753, 4, 393219, 458753, 4, 393220, 458753, 4, 393221, 458753, 4, 131075, 393217, 0, 196610, 458753, 0, 131076, 458753, 0, 131077, 458753, 0, 131078, 458753, 0, 131079, 458753, 0, 131080, 458753, 0, 131081, 458753, 0, 131082, 458753, 0, 393222, 458753, 4, 393223, 458753, 4, 393224, 458753, 4, 393225, 458753, 4, 393226, 458753, 4, 458763, 458753, 4, 458764, 458753, 4, 458765, 458753, 4, 458766, 458753, 4, 458767, 458753, 4, 458768, 458753, 4, 262145, 458753, 2, 262146, 458753, 2, 262147, 458753, 2, 262148, 458753, 2, 262149, 458753, 2, 262150, 458753, 2, 262151, 458753, 2, 262152, 458753, 2, 262153, 458753, 2, 262154, 458753, 2, 262155, 458753, 2, 262156, 458753, 2, 262157, 458753, 2, 262158, 458753, 2, 262159, 458753, 2, 262160, 458753, 2, 196624, 458753, 2, 131088, 458753, 2, 131087, 458753, 2, 131086, 458753, 2, 131085, 458753, 2, 131084, 458753, 2, 131083, 458753, 2, 196619, 458753, 2, 196620, 458753, 2, 196621, 458753, 2, 196622, 458753, 2, 196623, 458753, 2, 196618, 458753, 2, 196617, 458753, 2, 196616, 458753, 2, 196615, 458753, 2, 196614, 458753, 2, 196613, 458753, 2, 196612, 458753, 2, 196611, 458753, 2, 327683, 458753, 2, 327684, 458753, 2, 327685, 458753, 2, 327686, 458753, 2, 327687, 458753, 2, 327688, 458753, 2, 327689, 458753, 2, 393227, 458753, 2, 393228, 458753, 2, 393229, 458753, 2, 393230, 458753, 2, 393231, 458753, 2, 327695, 458753, 2, 327696, 458753, 2, 393232, 458753, 2, 327694, 458753, 2, 327693, 458753, 2, 327692, 458753, 2, 327691, 458753, 2, 327690, 458753, 2, 327680, 393217, 5, 393217, 393217, 5, 458755, 393217, 5, 524299, 393217, 5, 524305, 720897, 5, 524304, 458753, 5, 524303, 458753, 5, 524302, 458753, 5, 524301, 458753, 5, 524300, 458753, 5, 458762, 458753, 5, 458761, 458753, 5, 458760, 458753, 5, 458759, 458753, 5, 458758, 458753, 5, 458757, 458753, 5, 458756, 458753, 5, 393218, 458753, 5, 524298, 262145, 10, 458770, 262145, 10, 393234, 262145, 10, 458754, 262145, 10, 393216, 262145, 10, 393215, 262145, 10, 327679, 262145, 10, 262143, 262145, 10, 196608, 262145, 10, 131072, 262145, 10, 131073, 262145, 10, 131074, 262145, 10, 65538, 262145, 10, 65539, 262145, 10, 65540, 262145, 10, 65541, 262145, 10, 65542, 262145, 10, 65543, 262145, 10, 65544, 262145, 10, 65545, 262145, 10, 65546, 262145, 10, 10, 262145, 10, 11, 262145, 10, 12, 262145, 10, 13, 262145, 10, 14, 262145, 10, 15, 262145, 10, 16, 262145, 10, 17, 262145, 10, 18, 262145, 10, 65554, 262145, 10, 131090, 262145, 10, 196626, 262145, 10, 262162, 262145, 10, 327698, 262145, 10, 524306, 262145, 10)
+
+[node name="Player" type="Node2D" parent="." groups=["player"]]
+position = Vector2(352, 288)
+script = ExtResource("3_rp7mu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = SubResource("AtlasTexture_qnsso")
+hframes = 6
+
+[node name="PlayerHUD" type="CanvasLayer" parent="Player"]
+
+[node name="ActionSelect" type="Panel" parent="Player/PlayerHUD"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Move" type="Button" parent="Player/PlayerHUD/ActionSelect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 381.0
+offset_top = 308.0
+offset_right = -731.0
+offset_bottom = -309.0
+text = "이동"
+
+[node name="Attack" type="Button" parent="Player/PlayerHUD/ActionSelect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 792.0
+offset_top = 300.0
+offset_right = -320.0
+offset_bottom = -317.0
+text = "공격
+"
+
+[node name="CardDelete" type="Panel" parent="Player/PlayerHUD"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/PlayerHUD/CardDelete"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Player/PlayerHUD/CardDelete/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_5ahtt")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Player/PlayerHUD/CardDelete/VBoxContainer"]
+layout_mode = 2
+text = "드로우할 카드"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Player/PlayerHUD/CardDelete/VBoxContainer"]
+layout_mode = 2
+text = "선택"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/PlayerHUD/CardDelete/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Card1" type="Control" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card1/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_5ahtt")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card1/VBoxContainer"]
+layout_mode = 2
+text = "선택"
+
+[node name="Card2" type="Control" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card2/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_5ahtt")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card2/VBoxContainer"]
+layout_mode = 2
+text = "선택"
+
+[node name="Card3" type="Control" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card3/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_5ahtt")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card3/VBoxContainer"]
+layout_mode = 2
+text = "선택"
+
+[node name="Card4" type="Control" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card4/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_5ahtt")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card4/VBoxContainer"]
+layout_mode = 2
+text = "선택"
+
+[node name="Card5" type="Control" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card5/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_5ahtt")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card5/VBoxContainer"]
+layout_mode = 2
+text = "선택"
+
+[node name="HP" type="ProgressBar" parent="Player"]
+offset_left = -32.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 42.0
+show_percentage = false
+
+[node name="DetectCollider" type="RayCast2D" parent="Player"]
+target_position = Vector2(0, 64)
+collision_mask = 24
+collide_with_areas = true
+
+[node name="DetectArea" type="Area2D" parent="Player"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/DetectArea"]
+shape = SubResource("RectangleShape2D_5ky6k")
+
+[node name="AttackArea" type="Area2D" parent="Player"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AttackArea"]
+shape = SubResource("RectangleShape2D_yc422")
+
+[node name="DetectAttackArea" type="Area2D" parent="Player"]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/DetectAttackArea"]
+shape = SubResource("RectangleShape2D_1vsb1")
+
+[node name="Enemy" type="Node2D" parent="." groups=["enemy"]]
+position = Vector2(480, 288)
+script = ExtResource("6_qe0n4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+texture = SubResource("AtlasTexture_tt7e3")
+hframes = 8
+
+[node name="DetectArea" type="Area2D" parent="Enemy"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/DetectArea"]
+shape = SubResource("RectangleShape2D_4jb4m")
+
+[node name="AttackArea" type="Area2D" parent="Enemy"]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/AttackArea"]
+shape = SubResource("RectangleShape2D_4m3l3")
+
+[node name="DetectAttackArea" type="Area2D" parent="Enemy"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/DetectAttackArea"]
+shape = SubResource("RectangleShape2D_n6woc")
+
+[node name="DetectRays" type="Node2D" parent="Enemy"]
+
+[node name="Up" type="RayCast2D" parent="Enemy/DetectRays"]
+target_position = Vector2(0, -64)
+collide_with_areas = true
+
+[node name="Down" type="RayCast2D" parent="Enemy/DetectRays"]
+target_position = Vector2(0, 64)
+collide_with_areas = true
+
+[node name="Left" type="RayCast2D" parent="Enemy/DetectRays"]
+target_position = Vector2(-64, 0)
+collide_with_areas = true
+
+[node name="Right" type="RayCast2D" parent="Enemy/DetectRays"]
+target_position = Vector2(64, 0)
+collide_with_areas = true
+
+[node name="LeftUp" type="RayCast2D" parent="Enemy/DetectRays"]
+target_position = Vector2(-64, -64)
+collide_with_areas = true
+
+[node name="RightUp" type="RayCast2D" parent="Enemy/DetectRays"]
+target_position = Vector2(64, -64)
+collide_with_areas = true
+
+[node name="LeftDown" type="RayCast2D" parent="Enemy/DetectRays"]
+target_position = Vector2(-64, 64)
+collide_with_areas = true
+
+[node name="RightDown" type="RayCast2D" parent="Enemy/DetectRays"]
+target_position = Vector2(64, 64)
+collide_with_areas = true
+
+[node name="ProgressBar" type="ProgressBar" parent="Enemy"]
+offset_left = -32.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 42.0
+show_percentage = false
+
+[connection signal="pressed" from="Player/PlayerHUD/ActionSelect/Move" to="Player" method="action_select_button" binds= ["move"]]
+[connection signal="pressed" from="Player/PlayerHUD/ActionSelect/Attack" to="Player" method="action_select_button" binds= ["attack"]]
+[connection signal="pressed" from="Player/PlayerHUD/CardDelete/VBoxContainer/Button" to="Player" method="delete_card_button" binds= [5]]
+[connection signal="pressed" from="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card1/VBoxContainer/Button" to="Player" method="delete_card_button" binds= [0]]
+[connection signal="pressed" from="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card2/VBoxContainer/Button" to="Player" method="delete_card_button" binds= [1]]
+[connection signal="pressed" from="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card3/VBoxContainer/Button" to="Player" method="delete_card_button" binds= [2]]
+[connection signal="pressed" from="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card4/VBoxContainer/Button" to="Player" method="delete_card_button" binds= [3]]
+[connection signal="pressed" from="Player/PlayerHUD/CardDelete/VBoxContainer/HBoxContainer/Card5/VBoxContainer/Button" to="Player" method="delete_card_button" binds= [4]]

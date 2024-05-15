@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://thrgiuhow2gg"]
+[gd_scene load_steps=5 format=3 uid="uid://cpr4oqirmvpo6"]
 
 [ext_resource type="PackedScene" uid="uid://chs11gxbxlg8a" path="res://Stage/Action/DestinySelect/DestinySelect.tscn" id="2_32g7g"]
 [ext_resource type="PackedScene" uid="uid://c6vko3lb8iys4" path="res://Map/Map.tscn" id="3_8xyfv"]
