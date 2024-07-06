@@ -8,3 +8,4 @@ script = ExtResource("1_geg08")
 name = "Potion"
 texture = ExtResource("2_filov")
 itemDesc = "Simple potionn"
+number = 3

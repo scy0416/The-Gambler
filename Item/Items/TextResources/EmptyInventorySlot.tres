@@ -8,3 +8,4 @@ script = ExtResource("1_hiua5")
 name = "EmptyInventorySlot"
 texture = ExtResource("2_4fu3e")
 itemDesc = "Empty Slot"
+number = 2

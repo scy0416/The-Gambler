@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=2 format=3 uid="uid://bf4sg3mwqd2x3"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/Relic.gd" id="1_s8byh"]
+
+[resource]
+script = ExtResource("1_s8byh")
+description = "NORMAL1"
+price = 100
+rarity = 0
+bought = false

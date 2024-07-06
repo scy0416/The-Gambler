@@ -8,3 +8,4 @@ script = ExtResource("1_ig5yj")
 name = "Sword"
 texture = ExtResource("2_j4mmr")
 itemDesc = "Simple sword"
+number = 4

@@ -8,3 +8,4 @@ script = ExtResource("1_2ipmh")
 name = "Tall Shield"
 texture = ExtResource("2_74x42")
 itemDesc = "Simple shiled"
+number = 5

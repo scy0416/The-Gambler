@@ -1,40 +1,49 @@
 extends Resource
+class_name GenRelic
 
-var normalRelics : Array
-var rareRelics : Array
-var legendaryRelics : Array
-var bossRelics : Array
-var x = 1
-var rng = RandomNumberGenerator.new()
+@export var normalRelics : Array = [preload("res://ShopScene/RelicResources/Normal1.tres"), 
+preload("res://ShopScene/RelicResources/Normal2.tres"),
+preload("res://ShopScene/RelicResources/Normal3.tres"),
+preload("res://ShopScene/RelicResources/Normal4.tres"),
+preload("res://ShopScene/RelicResources/Normal5.tres"),
+preload("res://ShopScene/RelicResources/Normal6.tres"),
+preload("res://ShopScene/RelicResources/Normal7.tres"),
+preload("res://ShopScene/RelicResources/Normal8.tres"),
+preload("res://ShopScene/RelicResources/Normal9.tres"),
+preload("res://ShopScene/RelicResources/Normal10.tres"),
+preload("res://ShopScene/RelicResources/Normal11.tres"),
+preload("res://ShopScene/RelicResources/Normal12.tres"),
+preload("res://ShopScene/RelicResources/Normal13.tres"),
+preload("res://ShopScene/RelicResources/Normal14.tres"),
+preload("res://ShopScene/RelicResources/Normal15.tres")]
 
 
-#목적: 랜덤한 유물을 생성한다. 상점의 기능을 시험하기 위한 임시 스크립트로 이후 삭제할 예정.
-func genRelics():
-	for i in 30:
-		var s = "NORMAL " + str(i)
-		var p = rng.randi_range(1, 50)
-		var r = Relic.whatRare.NORMAL
-		var relic = Relic.new(s, p, r)
-		normalRelics.append(relic)
+@export var rareRelics : Array = [preload("res://ShopScene/RelicResources/Rare1.tres"), 
+preload("res://ShopScene/RelicResources/Rare2.tres"),
+preload("res://ShopScene/RelicResources/Rare3.tres"),
+preload("res://ShopScene/RelicResources/Rare4.tres"),
+preload("res://ShopScene/RelicResources/Rare5.tres"),
+preload("res://ShopScene/RelicResources/Rare6.tres"),
+preload("res://ShopScene/RelicResources/Rare7.tres"),
+preload("res://ShopScene/RelicResources/Rare8.tres")]
+
+
+@export var epicRelics : Array = [preload("res://ShopScene/RelicResources/Epic1.tres"), 
+preload("res://ShopScene/RelicResources/Epic2.tres"),
+preload("res://ShopScene/RelicResources/Epic3.tres"),
+preload("res://ShopScene/RelicResources/Epic4.tres"),
+preload("res://ShopScene/RelicResources/Epic5.tres"),
+preload("res://ShopScene/RelicResources/Epic6.tres"),
+preload("res://ShopScene/RelicResources/Epic7.tres"),
+preload("res://ShopScene/RelicResources/Epic8.tres"),
+preload("res://ShopScene/RelicResources/Epic9.tres")]
+
+
+@export var legendaryRelics : Array = [preload("res://ShopScene/RelicResources/Legendary1.tres"), 
+preload("res://ShopScene/RelicResources/Legendary2.tres"),
+preload("res://ShopScene/RelicResources/Legendary3.tres"),
+preload("res://ShopScene/RelicResources/Legendary4.tres"),
+preload("res://ShopScene/RelicResources/Legendary5.tres"),
+preload("res://ShopScene/RelicResources/Legendary6.tres")]
 	
-	for i in 15:
-		var s = "RARE " + str(i)
-		var p = rng.randi_range(50, 100)
-		var r = Relic.whatRare.RARE
-		var relic = Relic.new(s, p, r)
-		rareRelics.append(relic)
-	
-	for i in 8:
-		var s = "LEGENDARY " + str(i)
-		var p = rng.randi_range(100, 150)
-		var r = Relic.whatRare.LEGENDARY
-		var relic = Relic.new(s, p, r)
-		legendaryRelics.append(relic)	
-		
-	for i in 4:
-		var s = "BOSS " + str(i)
-		var p = rng.randi_range(150, 200)
-		var r = Relic.whatRare.BOSS
-		var relic = Relic.new(s, p, r)
-		bossRelics.append(relic)			
 	

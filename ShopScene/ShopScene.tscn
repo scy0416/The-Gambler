@@ -44,7 +44,16 @@ text = "REROLL RELICS"
 layout_mode = 1
 offset_top = 192.0
 offset_right = 700.0
-offset_bottom = 642.0
+offset_bottom = 321.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+columns = 4
+
+[node name="itemContainer" type="GridContainer" parent="shop"]
+layout_mode = 0
+offset_top = 400.0
+offset_right = 700.0
+offset_bottom = 529.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 columns = 4
@@ -63,6 +72,7 @@ layout_mode = 2
 offset_top = 192.0
 offset_right = 700.0
 offset_bottom = 592.0
+columns = 5
 
 [node name="invenGold" type="Label" parent="inven"]
 layout_mode = 1

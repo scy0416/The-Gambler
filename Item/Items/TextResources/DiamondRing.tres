@@ -8,3 +8,4 @@ script = ExtResource("1_n46bk")
 name = "DIamondRing"
 texture = ExtResource("2_al07t")
 itemDesc = "Simple ring"
+number = 1

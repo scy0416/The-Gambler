@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="tempData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="tempData" load_steps=2 format=3 uid="uid://8wqu2i3bgcxf"]
 
-[ext_resource type="Script" path="res://Card/tempData.gd" id="1_80gc5"]
+[ext_resource type="Script" path="res://Card/tempData.gd" id="1_3y2ye"]
 
 [resource]
-script = ExtResource("1_80gc5")
-eArray = ["ENEMY", "DUMMY", "897.5", "10", "10", "1", "1", "3", "LONG", "DUMMY-WEAK
+script = ExtResource("1_3y2ye")
+eArray = ["ENEMY", "DUMMY", "1000", "10", "10", "1", "1", "3", "LONG", "DUMMY-WEAK
  ENEMY"]
-pArray = ["PLAYER", "HERO", "53", "10", "1", "4", "1", "THE PROTAGONIST
+pArray = ["PLAYER", "HERO", "100", "10", "1", "0", "1", "THE PROTAGONIST
  OF THIS GAME"]

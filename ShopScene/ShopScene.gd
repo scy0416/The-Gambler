@@ -2,24 +2,26 @@ extends Node
 
 var gameData = GameData.new()
 var rng = RandomNumberGenerator.new()
-var genRelics = preload("res://ShopScene/generateRelics.gd").new()
+var genRelics = GenRelic.new()
 
 #중복 체크를 위한 배열들
 var normalChecked : Array
 var rareChecked : Array
 var legendaryChecked : Array
+var epicChecked : Array
 
 var normalCount : int
 var rareCount : int
+var epicCount : int
 var legendaryCount: int
 
 var allSellRelics : int
 
+var drawRelicCount = 8
+
 
 func _ready():
-	genRelics.genRelics()
-	allSellRelics = genRelics.normalRelics.size() + genRelics.rareRelics.size() + genRelics.legendaryRelics.size()
-	initializeChecked()
+	initial()
 	$goShop.pressed.connect(self.goShop)
 	$shop/rerollB.pressed.connect(self.rerollRelics)
 	$invenB.pressed.connect(self.viewInven)	
@@ -38,18 +40,17 @@ func goShop():
 # 정승화, 2023.11.21, 인벤, goshop 버튼 draw부분 삭제, ready부분으로 이동
 func drawScene():
 	drawRelics()
-	
-	
-#목적: checked 배열들을 초기화한다. 
-#checked 배열의 목적은 한 상점에 중복된 유물이 나오게 하지 않게 하는 것이다.
-func initializeChecked():
-	normalChecked.resize(genRelics.normalRelics.size())
+	drawItems()
+
+func initial():
+	normalChecked.resize(15)
+	rareChecked.resize(8)
+	epicChecked.resize(9)
+	legendaryChecked.resize(6)
 	normalChecked.fill(0)
-	rareChecked.resize(genRelics.rareRelics.size())
 	rareChecked.fill(0)
-	legendaryChecked.resize(genRelics.legendaryRelics.size())
-	legendaryChecked.fill(0)
-	
+	epicChecked.fill(0)
+	legendaryChecked.fill(0)		
 
 #목적: 리롤 버튼을 화면에 그린다.
 # 정승화, 2023.11.21, 해당 기능 이용 안 하도록 변경 
@@ -70,64 +71,83 @@ func initializeChecked():
 		
 #목적: 유물을 화면에 그린다. 	
 func drawRelics():
-	for i in 8:
+	for i in drawRelicCount:	
 		var rarity = rng.randf_range(0, 1)
 		rarity = weightedRarity(rarity)
-		if(rarity == Relic.whatRare.NORMAL and normalCount >= genRelics.normalRelics.size()):
-			rarity = rng.randf_range(0.65, 1)
-			rarity = weightedRarity(rarity)
-			
-		while(rarity == Relic.whatRare.RARE and rareCount >= genRelics.rareRelics.size()):
+		var foundRelic = findRelic(rarity)
+		
+		while(foundRelic == null):
 			rarity = rng.randf_range(0, 1)
 			rarity = weightedRarity(rarity)
-
-		if(rarity == Relic.whatRare.LEGENDARY and legendaryCount >= genRelics.legendaryRelics.size()):
-			rarity = rng.randf_range(0, 0.89)
-			rarity = weightedRarity(rarity)		
-		
-		var foundRelic = findRelic(rarity)
-		var button = Button.new()
+			foundRelic = findRelic(rarity)
+			
 		var relicGold = foundRelic.price
 		foundRelic.button.text = str(relicGold) + "\n" + foundRelic.description
 		foundRelic.button.connect("pressed", buyRelic.bind(foundRelic))
 		$shop/relicContainer.add_child(foundRelic.button)		
+		
+		
+func drawItems():
+	for i in 4:
+		var item = ItemManager.getItem(i)
+		var button = Button.new()
+		button.icon = item.texture;
+		print(button.icon)
+		
+		
+		$shop/itemContainer.add_child(button)
+		
+			
 	
 #목적: 레어도에 따른 가중치 부여. 
 func weightedRarity(r):
-	if(r < 0.65):
-		return Relic.whatRare.NORMAL
-	elif(r < 0.90):
-		return Relic.whatRare.RARE		
+	if(r < 0.5):
+		return 0
+	elif(r < 0.85):
+		return 1		
+	elif(r < 0.95):
+		return 2
 	else:
-		return Relic.whatRare.LEGENDARY
+		return 3	
 
 
 #목적: rarity에 맞는 유물을 랜덤하게 찾는다. 이 때 상점에 이미 있는 유물, 혹은 이미 구입된 유물은 제외된다.
 func findRelic(r):
 	match r:
-		Relic.whatRare.NORMAL: 
+		0: 
 			var i = rng.randi_range(0, genRelics.normalRelics.size() - 1)
-			while normalChecked[i] == 1 or genRelics.normalRelics[i].bought == true:
-				i = rng.randi_range(0, genRelics.normalRelics.size() - 1)
-			normalChecked[i] = 1	
-			return genRelics.normalRelics[i]
-		Relic.whatRare.RARE: 
+			if(normalChecked[i] == 0 and genRelics.normalRelics[i].bought == false):
+				normalChecked[i] = 1
+				return genRelics.normalRelics[i]
+			else:
+				return null
+			
+		1: 
 			var i = rng.randi_range(0, genRelics.rareRelics.size() - 1)
-			while rareChecked[i] == 1 or genRelics.rareRelics[i].bought == true:
-				i = rng.randi_range(0, genRelics.rareRelics.size() - 1)
-			rareChecked[i] = 1	
-			return genRelics.rareRelics[i]
-		Relic.whatRare.LEGENDARY: 
+			if(rareChecked[i] == 0 and genRelics.rareRelics[i].bought == false):
+				rareChecked[i] = 1
+				return genRelics.rareRelics[i]
+			else:
+				return null	
+				
+		2: 
+			var i = rng.randi_range(0, genRelics.epicRelics.size() - 1)
+			if(epicChecked[i] == 0 and genRelics.epicRelics[i].bought == false):
+				epicChecked[i] = 1
+				return genRelics.epicRelics[i]	
+			else:
+				return null
+		3: 
 			var i = rng.randi_range(0, genRelics.legendaryRelics.size() - 1)
-			while legendaryChecked[i] == 1 or genRelics.legendaryRelics[i].bought == true:
-				i = rng.randi_range(0, genRelics.legendaryRelics.size() - 1)
-			legendaryChecked[i] = 1	
-			return genRelics.legendaryRelics[i]
-	
+			if(legendaryChecked[i] == 0 and genRelics.legendaryRelics[i].bought == false): 
+				legendaryChecked[i] = 1	
+				return genRelics.legendaryRelics[i]
+			else:
+				return null	
 
 #목적: 유물을 구입한다. 
 func buyRelic(relic):	
-	if gameData.getGold() >= relic.price:
+	if(gameData.getGold() >= relic.price):
 		relic.bought = true
 		gameData.appendRelic(relic)
 		gameData.setGold(gameData.getGold() - relic.price)
@@ -135,11 +155,13 @@ func buyRelic(relic):
 		relic.button.connect("pressed", sellRelic.bind(relic))
 		$shop/relicContainer.remove_child(relic.button)
 		$inven/invenContainer.add_child(relic.button)
-		if(relic.rarity == Relic.whatRare.NORMAL):
+		if(relic.rarity == 0):
 			normalCount += 1
-		if(relic.rarity == Relic.whatRare.RARE):
+		if(relic.rarity == 1):
 			rareCount += 1
-		if(relic.rarity == Relic.whatRare.LEGENDARY):
+		if(relic.rarity == 2):
+			epicCount += 1	
+		if(relic.rarity == 3):
 			legendaryCount += 1		
 		if(gameData.getGold() < 10):
 			$shop/rerollB.disabled = true
@@ -160,10 +182,18 @@ func rerollRelics():
 		$shop/rerollB.disabled = true
 	normalChecked.fill(0)
 	rareChecked.fill(0)
+	epicChecked.fill(0)
 	legendaryChecked.fill(0)
 	for i in $shop/relicContainer.get_children():
 		i.disconnect("pressed", buyRelic.bind(Relic))
 		$shop/relicContainer.remove_child(i)
+	var buyRelicCount = normalCount + rareCount + epicCount + legendaryCount
+	var allRelicCount = genRelics.normalRelics.size() + genRelics.rareRelics.size() + genRelics.epicRelics.size() + genRelics.legendaryRelics.size()
+	
+	if((allRelicCount - buyRelicCount) >= 8): 
+		drawRelicCount = 8
+	else:
+		drawRelicCount = (allRelicCount - buyRelicCount) % 8	
 	drawRelics()
 		
 		

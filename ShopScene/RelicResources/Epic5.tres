@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=2 format=3 uid="uid://cdawl7aqhcbh7"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/Relic.gd" id="1_k2cfn"]
+
+[resource]
+script = ExtResource("1_k2cfn")
+description = "EPIC5"
+price = 300
+rarity = 2
+bought = false
