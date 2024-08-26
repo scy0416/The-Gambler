@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://pwepkngt185d"]
+
+[ext_resource type="Texture2D" uid="uid://ct0ov4h2gd3bc" path="res://Item/Items/Sprites/DiamondRing.png" id="1_f7r7p"]
+[ext_resource type="Script" path="res://Scripts/Resources/relicsScript/dumbbell.gd" id="2_kt4e7"]
+
+[resource]
+script = ExtResource("2_kt4e7")
+relic_name = "Dumbbell"
+id = "Dumbbell"
+relicType = 2
+icon = ExtResource("1_f7r7p")
+tooltip = "휴식' 이벤트에서 '운동' 선택지가 추가된다, '운동' 선택시 공격력 +2 (최대 3회)						"
+price = 0
+rarity = 0
+bought = false
+description = ""

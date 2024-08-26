@@ -18,6 +18,7 @@ var damage = 0.0
 @export var checkChangeScene = false
 @export var cemetryCards : Array
 @export var deckCards : Array
+@export var relics: RelicHandler
 
 @onready var gameSizeX = 560
 @onready var gameSizeY = 550
@@ -25,6 +26,7 @@ var damage = 0.0
 @onready var HorRad = gameSizeX * 0.45
 @onready var VerRad = gameSizeY * 0.4
 @onready var panelPosition = $Panel.position
+@onready var relicHandler:RelicHandler = %RelicHandler
 var angle = deg_to_rad(90) + 0.7
 var ovalAngle = Vector2()
 
@@ -48,7 +50,7 @@ func _ready():
 	playerY = $Player/Sprite2D.position.y
 	$Player/TextureRect.texture = load(str("res://Card//Resource/" + deckScript.deck.back() + ".png"))
 	
-	var item = load("res://Item/Items/TextResources/Sword.tres")
+	var item = load("res://Item/Items/TextResources/SwordItem.tres")
 	
 	inven.set_item(0, item)
 	var index = 0
@@ -70,11 +72,13 @@ func _ready():
 
 func _process(delta):
 	$Enemy/EnemyHP/ELabel.text = "HP: " + str(enemyHP)	
-	$UIs/PlayerHP/PLabel.text = "HP: " + str(playerHP)
-	$UIs/PShield.text = "Shield: " + str(playerShield)	
+	$TopBar/PlayerHP/PLabel.text = "HP: " + str(playerHP)
+	$TopBar/PShield.text = "Shield: " + str(playerShield)	
 	$Enemy/EnemyHP.value = enemyHP
-	$UIs/PlayerHP.value = playerHP	
+	$TopBar/PlayerHP.value = playerHP	
 	enemyHP = float(ResourceLoader.load("res://tempResource.tres").eArray[2])
+	playerAttack = $Player.stats.getAtk()
+	playerHP = $Player.stats.getMaxLife()
 					
 					
 func _input(event):
@@ -87,6 +91,7 @@ func _input(event):
 				draw()
 		if event.keycode == KEY_RIGHT or event.keycode == KEY_D:
 			$Player.set_position($Player.get_position() + Vector2(30,0))
+			%RelicHandler.activate_relics_by_type(Relic.Type.DURING_MOVE)      #유물 시험용 코드이고 타입도 변경 예정.
 			if(myHands.size() >= 5):
 				viewChangeScene()
 			if(myHands.size() < 5):
@@ -207,6 +212,7 @@ func attack():
 	if(hand != null):
 		$UIs/Label.text = hand
 		enemyHP -= damage
+		
 		match hand:
 			"TRIPLE": pass
 			"STRAIGHT": pass

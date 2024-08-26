@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://qkxn7cxx31sb"]
+
+[ext_resource type="Script" path="res://Card/relic_ui.gd" id="1_13vfo"]
+[ext_resource type="Texture2D" uid="uid://bsrn7l7hej0tf" path="res://Item/Items/Sprites/Potion.png" id="1_55dlg"]
+[ext_resource type="Shader" path="res://Scripts/Resources/white_sprite_material.gdshader" id="3_83x8u"]
+
+[sub_resource type="Animation" id="Animation_axx3o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_016fy"]
+shader = ExtResource("3_83x8u")
+
+[sub_resource type="Animation" id="Animation_u8waw"]
+resource_name = "flash"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [null, SubResource("ShaderMaterial_016fy"), null]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oba6u"]
+_data = {
+"RESET": SubResource("Animation_axx3o"),
+"flash": SubResource("Animation_u8waw")
+}
+
+[node name="RelicUI" type="Control"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_13vfo")
+
+[node name="Icon" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("1_55dlg")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oba6u")
+}
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

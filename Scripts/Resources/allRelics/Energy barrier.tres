@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=3 format=3 uid="uid://b5pfoes8le33y"]
+
+[ext_resource type="Texture2D" uid="uid://bsrn7l7hej0tf" path="res://Item/Items/Sprites/Potion.png" id="1_53gmw"]
+[ext_resource type="Script" path="res://Scripts/Resources/Relic.gd" id="1_uldev"]
+
+[resource]
+script = ExtResource("1_uldev")
+relic_name = "BamYangGang"
+id = "BamYangGang"
+relicType = 10
+icon = ExtResource("1_53gmw")
+tooltip = ""
+price = 0
+rarity = 0
+bought = false
+description = ""

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crf7r73payulf"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/relicsScript/sword.gd" id="1_smmtn"]
+
+[node name="Sword" type="Node2D"]
+script = ExtResource("1_smmtn")

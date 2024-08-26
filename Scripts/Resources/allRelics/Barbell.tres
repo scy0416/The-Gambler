@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://yiodfx6cmyg5"]
+
+[ext_resource type="Texture2D" uid="uid://bsrn7l7hej0tf" path="res://Item/Items/Sprites/Potion.png" id="1_u0edo"]
+[ext_resource type="Script" path="res://Scripts/Resources/relicsScript/barbell.gd" id="2_eqjma"]
+
+[resource]
+script = ExtResource("2_eqjma")
+relic_name = "Barbell"
+id = "Barbell"
+relicType = 2
+icon = ExtResource("1_u0edo")
+tooltip = "휴식 이벤트에서 '운동' 선택지가 추가된다, '운동' 선택시 공격력 +3(최대 3회)						"
+price = 0
+rarity = 0
+bought = false
+description = ""

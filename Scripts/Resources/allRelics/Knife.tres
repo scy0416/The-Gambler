@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=3 format=3 uid="uid://bbgsbcrt0a722"]
+
+[ext_resource type="Texture2D" uid="uid://nayko82h8hg6" path="res://Item/Items/Sprites/Sword.png" id="1_s2re7"]
+[ext_resource type="Script" path="res://Scripts/Resources/Relic.gd" id="2_l443d"]
+
+[resource]
+script = ExtResource("2_l443d")
+relic_name = "Knife"
+id = "Knife"
+relicType = 5
+icon = ExtResource("1_s2re7")
+tooltip = "대상 공격 시 주는 데미지 1 증가						"
+price = 0
+rarity = 0
+bought = false
+description = ""

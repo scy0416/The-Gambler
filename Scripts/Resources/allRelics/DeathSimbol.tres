@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d4avvp3kyrbe2"]
+
+[ext_resource type="Texture2D" uid="uid://buw5rh0sbtejo" path="res://Item/Items/Sprites/TallShield.png" id="1_l43yc"]
+[ext_resource type="Script" path="res://Scripts/Resources/relicsScript/deathSimbol.gd" id="2_q8d0t"]
+
+[resource]
+script = ExtResource("2_q8d0t")
+lifePenalty = 20
+atkReward = 10
+relic_name = "DeathSimbol"
+id = "DeathSimbol"
+relicType = 2
+icon = ExtResource("1_l43yc")
+tooltip = "최대 체력 -20, 공격력 +10						"
+price = 0
+rarity = 0
+bought = false
+description = ""

@@ -27,6 +27,14 @@ enum Character {c1, c2, c3}
 # 아이템
 @export var items:Array
 # 캐릭터 타입
+@export var hand:int = 5
+# 최대 손패
+@export var rng:int = 1
+# 공격 범위
+@export var attack:int = 10
+# 공격력
+@export var block:int = 0
+# 방어도
 @export var character:Character
 @export var savedScene:PackedScene
 @export var savedSceneState:Dictionary
@@ -179,5 +187,63 @@ func getItems()->Array:
 	return items
 
 
+#========================================
+# 목적: attack 값을 초기화하는 메소드
+# 매개변수: value: 초기화 하고자하는 attack 값
+# 반환값: 없음
+#========================================
+func setAtk(value: int):
+	attack = value
+	emit_signal("data_changed")
+
+
+#========================================
+# 목적: attack 값을 반환하는 메소드
+# 매개변수: 없음
+# 반환값: attack 값
+#========================================	
+func getAtk() -> int:
+	return attack	
+	
+	
+#========================================
+# 목적: block 값을 초기화하는 메소드
+# 매개변수: value: 초기화 하고자하는 block 값
+# 반환값: 없음
+#========================================
+func setBlock(value: int):
+	block = value
+	emit_signal("data_changed")
+	
+
+#========================================
+# 목적: block 값을 반환하는 메소드
+# 매개변수: 없음
+# 반환값: block 값
+#========================================	
+func getBlock():
+	return block
+	
+	
+#========================================
+# 목적: rng 값을 초기화하는 메소드
+# 매개변수: value: 초기화 하고자하는 rng 값
+# 반환값: 없음
+#========================================
+func setRng(value: int):
+	rng = value
+	emit_signal("data_changed")
+	
+
+#========================================
+# 목적: rng 값을 반환하는 메소드
+# 매개변수: 없음
+# 반환값: rng 값
+#========================================	
+func getRng():
+	return rng
+
 func setCharacter(value):
 	character = value
+
+

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dbtkcag4kfdac"]
+
+[ext_resource type="Texture2D" uid="uid://buw5rh0sbtejo" path="res://Item/Items/Sprites/TallShield.png" id="1_ritsc"]
+[ext_resource type="Script" path="res://Scripts/Resources/relicsScript/bamYangGang.gd" id="2_7ks7r"]
+
+[resource]
+script = ExtResource("2_7ks7r")
+maxLifePlus = 8
+relic_name = "BamYangGang"
+id = "BamYangGang"
+relicType = 2
+icon = ExtResource("1_ritsc")
+tooltip = "획득 시 최대체력 +8						"
+price = 0
+rarity = 0
+bought = false
+description = ""

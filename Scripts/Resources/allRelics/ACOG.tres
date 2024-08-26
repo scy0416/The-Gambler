@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://du8l86ju5hyb2"]
+
+[ext_resource type="Texture2D" uid="uid://ct0ov4h2gd3bc" path="res://Item/Items/Sprites/DiamondRing.png" id="1_fw3jh"]
+[ext_resource type="Script" path="res://Scripts/Resources/relicsScript/acog.gd" id="1_wi7gw"]
+
+[resource]
+script = ExtResource("1_wi7gw")
+rngPlus = 2
+relic_name = "ACOG"
+id = "ACOG"
+relicType = 2
+icon = ExtResource("1_fw3jh")
+tooltip = "플레이어의 사거리가 +2						"
+price = 0
+rarity = 0
+bought = false
+description = ""

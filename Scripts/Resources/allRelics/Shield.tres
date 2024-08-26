@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=3 format=3 uid="uid://bjbwdbeh5ddt8"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/Relic.gd" id="1_3vi0c"]
+[ext_resource type="Texture2D" uid="uid://buw5rh0sbtejo" path="res://Item/Items/Sprites/TallShield.png" id="1_5xlge"]
+
+[resource]
+script = ExtResource("1_3vi0c")
+relic_name = ""
+id = ""
+Relic = 0
+icon = ExtResource("1_5xlge")
+tooltip = ""
+price = 0
+rarity = 0
+bought = false
+description = ""

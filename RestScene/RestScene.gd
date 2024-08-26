@@ -1,4 +1,7 @@
 extends Node
+class_name RestScene
+
+@export var attackPlus = 2
 
 var gameData = GameData.new()
 # Called when the node enters the scene tree for the first time.
@@ -23,3 +26,6 @@ func upMaxHP():
 	gameData.setMaxLife(gameData.getMaxLife() + 10)
 	$HPbar.max_value += 10
 	$HPbar/HPLabel.text = "HP: " + str(gameData.getLife()) + "/" + str(gameData.getMaxLife())
+
+func exercise():
+	gameData.setAtk(gameData.getAtk + 3)

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://s5y1k60jh5wk"]
+
+[ext_resource type="Texture2D" uid="uid://nayko82h8hg6" path="res://Item/Items/Sprites/Sword.png" id="1_6088y"]
+[ext_resource type="Script" path="res://Scripts/Resources/relicsScript/sword.gd" id="2_7v8hw"]
+
+[resource]
+script = ExtResource("2_7v8hw")
+atkPlus = 2
+relic_name = "Sword"
+id = "Sword"
+relicType = 2
+icon = ExtResource("1_6088y")
+tooltip = "공격력 2 증가						"
+price = 0
+rarity = 0
+bought = false
+description = ""
